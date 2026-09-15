@@ -1,62 +1,34 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
   <title>Aktualności – Edukacja21</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="bg-gray-50 text-gray-800">
 
-  <header class="bg-blue-600 text-white py-6 shadow">
-    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
-      <h1 class="text-3xl font-bold">Edukacja21</h1>
-      <nav>
-        <ul class="flex space-x-6">
-          <li><a href="index.html" class="hover:underline">Strona główna</a></li>
-          <li><a href="#aktualnosci" class="hover:underline">Aktualności</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<body>
 
-  <main class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="text-4xl font-bold text-blue-700 mb-12 text-center">Aktualności</h2>
+  <h1>Aktualności</h1>
 
-    <div class="grid md:grid-cols-2 gap-10">
+  <div id="aktualnosci"></div>
 
-      <!-- Wpis 1 -->
-      <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-        <img src="images/projekt1.jpg" alt="Wpis 1" class="w-full h-56 object-cover" />
-        <div class="p-6">
-          <h3 class="text-2xl font-semibold text-blue-600 mb-2">Nowy projekt ekologiczny</h3>
-          <p class="text-sm text-gray-500 mb-2">Opublikowano: 4 czerwca 2025</p>
-          <p class="text-gray-700 mb-4">Rozpoczęliśmy nowy cykl warsztatów ekologicznych dla młodzieży w regionie mazowieckim.</p>
-          <a href="#" class="text-blue-500 hover:underline">Czytaj więcej</a>
-        </div>
-      </article>
+  <script>
+    fetch("news.json")
+      .then(response => response.json())
+      .then(news => {
 
-      <!-- Wpis 2 -->
-      <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-        <img src="images/projekt2.jpg" alt="Wpis 2" class="w-full h-56 object-cover" />
-        <div class="p-6">
-          <h3 class="text-2xl font-semibold text-blue-600 mb-2">Podsumowanie konferencji Edukacja 4.0</h3>
-          <p class="text-sm text-gray-500 mb-2">Opublikowano: 25 maja 2025</p>
-          <p class="text-gray-700 mb-4">Dziękujemy za udział w konferencji! Zobacz prezentacje i galerię zdjęć z wydarzenia.</p>
-          <a href="#" class="text-blue-500 hover:underline">Czytaj więcej</a>
-        </div>
-      </article>
+        const miejsce = document.getElementById("aktualnosci");
 
-    </div>
-  </main>
+        news.forEach(wpis => {
+          miejsce.innerHTML += `
+            <article>
+              <h2>${wpis.title}</h2>
+              <p>${wpis.content}</p>
+            </article>
+          `;
+        });
 
-  <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
-    <div class="max-w-6xl mx-auto px-6">
-      <p>© 2026 Edukacja21. Wszystkie prawa zastrzeżone.</p>
-      <p><a href="index.html" class="text-blue-400 hover:underline">Wróć na stronę główną</a></p>
-    </div>
-  </footer>
+      });
+  </script>
 
 </body>
 </html>
