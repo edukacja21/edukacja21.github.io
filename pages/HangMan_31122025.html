@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>PROJEKT — Hangman (Wisielec)</title>
+  <style>
+    body { background:#f2f2f2; font-family:Arial, sans-serif; }
+    .container { max-width:800px; margin:40px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,0.1); }
+    h1 { font-size:32px; margin-bottom:10px; }
+    .step { background:#eef; padding:15px; border-left:6px solid #446; margin-bottom:20px; border-radius:8px; }
+    pre { background:#111; color:#0f0; padding:15px; overflow:auto; border-radius:6px; }
+    .task { background:#ffe9b5; padding:15px; border-left:6px solid #d09c00; border-radius:8px; margin-top:10px; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>🔥 PROJEKT KOŃCOWY — HANGMAN (WISIELEC) 🔥</h1>
+<p>
+Zbudujesz klasyczną grę Wisielec <strong>krok po kroku</strong>.  
+Każdy krok to osobny fragment programu.  
+Na końcu połączysz wszystko w jedną działającą grę.
+</p>
+
+<!-- KROK 1 -->
+<div class="step">
+  <h2>🧠 KROK 1 — Lista słów i losowanie hasła</h2>
+  <p>Najpierw wybieramy jedno tajemnicze słowo. I kody ASCII. To były nasze pierwsze zajęcia...</p>
+
+<pre>
+import random
+
+wisielec = [
+"""
+ +---+
+ |   |
+     |
+     |
+     |
+     |
+=======
+""",
+"""
+ +---+
+ |   |
+ O   |
+     |
+     |
+     |
+=======
+""",
+"""
+ +---+
+ |   |
+ O   |
+ |   |
+     |
+     |
+=======
+""",
+"""
+ +---+
+ |   |
+ O   |
+/|   |
+     |
+     |
+=======
+""",
+"""
+ +---+
+ |   |
+ O   |
+/|\  |
+     |
+     |
+=======
+""",
+"""
+ +---+
+ |   |
+ O   |
+/|\  |
+/    |
+     |
+=======
+""",
+"""
+ +---+
+ |   |
+ O   |
+/|\  |
+/ \  |
+     |
+=======
+"""
+]
+
+slowa = ["python", "kot", "program", "gra", "wisielec"]
+haslo = random.choice(slowa)
+</pre>
+
+  <div class="task">
+    <strong>Zadanie:</strong><br>
+    Wypisz hasło w konsoli (tylko do testów).
+  </div>
+</div>
+
+<!-- KROK 2 -->
+<div class="step">
+  <h2>🔤 KROK 2 — Ukryte hasło</h2>
+  <p>Tworzymy listę podkreśleń zamiast liter.</p>
+
+<pre>
+ukryte = []
+
+for litera in haslo:
+    ukryte.append("_")
+
+print(" ".join(ukryte))
+</pre>
+
+  <div class="task">
+    <strong>Zadanie:</strong><br>
+    Wyświetl hasło w formie: <code>_ _ _ _</code>
+  </div>
+</div>
+
+<!-- KROK 3 -->
+<div class="step">
+  <h2>❤️ KROK 3 — Licznik żyć</h2>
+  <p>Gracz ma ograniczoną liczbę prób.</p>
+
+<pre>
+zycia = 6
+print("Masz", zycia, "żyć.")
+</pre>
+
+  <div class="task">
+    <strong>Zadanie:</strong><br>
+    Wyświetl liczbę żyć na starcie gry.
+  </div>
+</div>
+
+<!-- KROK 4 -->
+<div class="step">
+  <h2>⌨️ KROK 4 — Ruch gracza</h2>
+  <p>Gracz podaje jedną literę.</p>
+
+<pre>
+litera = input("Podaj literę: ").lower()
+</pre>
+
+  <div class="task">
+    <strong>Zadanie:</strong><br>
+    Sprawdź, czy gracz podał jedną literę.
+  </div>
+</div>
+
+<!-- KROK 5 -->
+<div class="step">
+  <h2>📋 KROK 5 — Lista użytych liter</h2>
+
+<pre>
+uzyte_litery = []
+
+if litera not in uzyte_litery:
+    uzyte_litery.append(litera)
+
+print("Użyte litery:", uzyte_litery)
+</pre>
+
+  <div class="task">
+    <strong>Zadanie:</strong><br>
+    Nie pozwól zgadywać tej samej litery drugi raz.
+  </div>
+</div>
+
+<!-- KROK 6 -->
+<div class="step">
+  <h2>✅ KROK 6 — Sprawdzanie trafienia</h2>
+
+<pre>
+if litera in haslo:
+    for i in range(len(haslo)):
+        if haslo[i] == litera:
+            ukryte[i] = litera
+else:
+    zycia -= 1
+</pre>
+
+  <div class="task">
+    <strong>Zadanie:</strong><br>
+    Odkryj wszystkie wystąpienia litery lub zabierz życie.
+  </div>
+</div>
+
+<!-- KROK 7 -->
+<div class="step">
+  <h2>🖼️ KROK 7 — Wisielec jako lista</h2>
+  <p>Każdy etap gry to jeden rysunek.</p>
+
+<pre>
+wisielec = [
+  "ETAP 0",
+  "ETAP 1",
+  "ETAP 2",
+  "ETAP 3",
+  "ETAP 4",
+  "ETAP 5",
+  "ETAP 6"
+]
+
+print(wisielec[6 - zycia])
+</pre>
+
+  <div class="task">
+    <strong>Zadanie:</strong><br>
+    Zastąp napisy rysunkami ASCII.
+  </div>
+</div>
+
+<!-- KROK 8 -->
+<div class="step">
+  <h2>🔁 KROK 8 — Pętla gry</h2>
+
+<pre>
+while zycia > 0 and ukryte.count("_") > 0:
+    # pytamy o literę
+    # sprawdzamy trafienie
+    # aktualizujemy hasło
+
+    print("\n" + "=" * 30)
+  
+    print(wisielec[6 - zycia])
+    
+    # Wypisz już użyte litery
+    if uzyte_litery:
+        print(f"Użyte litery: {', '.join(uzyte_litery)}")
+    
+    # Pobierz literę od gracza
+    while True:
+        litera = input("Podaj literę: ").lower()
+        
+        # Walidacja wejścia
+        if len(litera) != 1:
+            print("Podaj JEDNĄ literę!")
+            continue
+        if not litera.isalpha():
+            print("To nie jest litera!")
+            continue
+        if litera in uzyte_litery:
+            print("Ta litera już była!")
+            continue
+        break
+    
+    # Dodaj literę do listy użytych
+    uzyte_litery.append(litera)
+    
+    # Sprawdź czy litera jest w haśle
+    if litera in haslo:
+        print(f"✓ Dobrze! Litera '{litera}' jest w haśle.")
+        
+        # Odkryj wszystkie wystąpienia litery
+        trafienie = False
+        for i in range(len(haslo)):
+            if haslo[i] == litera:
+                ukryte[i] = litera
+                trafienie = True
+    else:
+        print(f"✗ Źle! Litery '{litera}' nie ma w haśle.")
+        zycia -= 1
+        print(f"Zostało żyć: {zycia}")
+    
+    # Pokaż aktualny stan hasła
+    print("\nHasło: " + " ".join(ukryte))
+    
+    # Pokaż postęp
+    odkryte = ukryte.count("_")
+    print(f"Odgadnęto: {len(haslo) - odkryte}/{len(haslo)} liter")
+
+</pre>
+
+<!-- KROK 9 -->
+<div class="step">
+  <h2>🎡 KROK 9 — # Koniec gry - sprawdź wynik</h2>
+
+<pre>
+print("\n" + "=" * 30)
+if "_" not in ukryte:
+    print(f"🎉 GRATULACJE! Odgadłeś hasło: {haslo.upper()}")
+    print("Wygrałeś!")
+else:
+    print(f"💀 KONIEC GRY! Hasło to: {haslo.upper()}")
+    print("Przegrałeś...")
+
+print("Dziękuję za grę!")
+
+</pre>
+
+
+
+  <div class="task">
+    <strong>ZADANIE FINAŁOWE:</strong><br>
+    Połącz wszystkie kroki w jeden działający program Hangman.
+  </div>
+</div>
+
+<hr>
+
+<h2>🏠 Zadanie domowe (dla chętnych)</h2>
+<ul>
+  <li>Wczytaj słowa z pliku <code>slowa.txt</code></li>
+  
+</ul>
+
+<p>To jest pełna gra. Gratulacje. 🫡</p>
+
+</div>
+
+ <div class="mt-12" style="display: flex; justify-content: space-between;">
+      <a href="./../akademia_2025.html" class="text-teal-600 hover:underline">← Powrót do wyboru ZADAŃ</a> </p>
+      <a href="./zadanie_1_29112025.html" class="text-teal-600 hover:underline text-align: left">← Zadanie 1. Gra w Statki</a> 
+    </div>
+ 
+ 
+  <div class="mt-12">
+  <footer class="text-center text-gray-500 py-8">
+    <p>Edukacja21 – materiał dla uczniów.</p>
+  </footer>     
+  </div>
+
+  </main>
+  
+</body>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>ZADANIE_1 – Mini Statki 5x5</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    body { background:#f2f2f2; font-family:Arial, sans-serif; }
+    .container { max-width:800px; margin:40px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,0.1); }
+    h1 { font-size:32px; margin-bottom:10px; }
+    .step { background:#eef; padding:15px; border-left:6px solid #446; margin-bottom:20px; border-radius:8px; }
+    pre { background:#111; color:#0f0; padding:15px; overflow:auto; border-radius:6px; }
+    .task { background:#ffe9b5; padding:15px; border-left:6px solid #d09c00; border-radius:8px; margin-top:10px; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+<h1>🔥 ZADANIE_1 — Mini Statki 5×5 🔥</h1>
+<p>Twoja misja: zbudować najprostsze możliwe statki — ale <strong>z części</strong>.  
+Na końcu połączysz wszystko w działającą grę.  
+Lecimy. 🚀</p>
+
+
+<!-- KROK 1 -->
+<div class="step">
+  <h2>🎮 KROK 1 — Stwórz pustą planszę</h2>
+  <p>Plansza to tablica 5×5 wypełniona spacjami. Skopiuj ten kod:</p>
+
+<pre>
+plansza = [
+    [" ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " "]
+]
+</pre>
+
+  <div class="task">
+    <strong>💥 Zadanie:</strong>  
+    Wyświetl tę planszę w konsoli w ładnej formie.  
+    Podpowiedź: <code>pętla for</code>. Praca domowa z 18-10-2025 może pomóc ...
+  </div>
+</div>
+
+<div class="step">
+<pre>
+# Praca domowa z 18-10-2025 
+print("🙂 ASCII 🙂\n")
+print("*" * 20 )
+print("\n")
+
+w, h = 14, 6
+for y in range(h):
+    if y in (0, h-1):
+        print("#" * w)
+    else:
+        print("#" + " " * (w-2) + "#")
+</pre>
+
+<!-- KROK 2 -->
+<div class="step">
+  <h2>🎲 KROK 2 — Komputer ukrywa statek</h2>
+  <p>Statek ma długość 3 i leży poziomo. Wylosuj jego pozycję:</p>
+
+<pre>
+import random
+
+wiersz = random.randint(0, 4)
+kolumna = random.randint(0, 2)
+
+statek = [(wiersz, kolumna),
+          (wiersz, kolumna+1),
+          (wiersz, kolumna+2)]
+</pre>
+
+  <div class="task">
+    <strong>💥 Zadanie:</strong>  
+    Wyświetl współrzędne statku (tylko na testy !!!! ).  
+    Przykład:  
+    <code>print(statek)</code>
+  </div>
+</div>
+
+
+<!-- KROK 3 -->
+<div class="step">
+  <h2>🎯 KROK 3 — Strzał gracza</h2>
+  <p>Poproś użytkownika o podanie współrzędnych (który wiersz, kolumna):</p>
+
+<pre>
+w = int(input("Podaj wiersz 0-4: "))
+k = int(input("Podaj kolumnę 0-4: "))
+</pre>
+
+  <div class="task">
+    <strong>💥 Zadanie:</strong>  
+    Sprawdź, czy trafiono w statek.  
+    Podpowiedź:  
+    <code>if (w, k) in statek:</code>
+  </div>
+</div>
+
+
+<!-- KROK 4 -->
+<div class="step">
+  <h2>💥 KROK 4 — Oznacz trafienia i pudła</h2>
+
+<pre>
+if (w, k) in statek:
+    print("Trafienie! 💥")
+    plansza[w][k] = "💥"
+else:
+    print("Pudło!")
+    plansza[w][k] = "o"
+</pre>
+
+</div>
+
+
+<!-- KROK 5 -->
+<div class="step">
+  <h2>🚢 KROK 5 — Pętla gry</h2>
+  <p>Gracz ma trafiać tak długo, aż trafi w 3 pola statku.</p>
+
+<pre>
+trafione = []
+
+while len(trafione) < 3:
+    # strzał...
+    # sprawdzamy trafienie...
+</pre>
+
+  <div class="task">
+    <strong>🔥 Zadanie FINAŁOWE:</strong>(O ile się nie pomyliłem ... ;-)<br>
+    Połącz wszystkie kroki (ekrany z programem) w jeden działający program.<br>
+    Gdy ukończysz — możesz dodać miny, albo statek pionowy.  
+    Twój wybór. 😎
+  </div>
+</div>
+
+<hr>
+
+<h2>🏠 Zadanie domowe (dla chętnych)</h2>
+<ul>
+  <li>Dodaj możliwość trafienia statku pionowego.</li>
+  <li>Dodaj licznik strzałów.</li>
+  <li>Spraw, abyś wiedział jak wiedzieć gdzie strzelać, aby trafić na pewno....</li>
+</ul>
+
+<p>Powodzenia! 🫡</p>
+
+</div> 
+
+ <div class="mt-12" style="display: flex; justify-content: space-between;">
+      <a href="./../akademia_2025.html" class="text-teal-600 hover:underline">← Powrót do wyboru ZADAŃ</a> </p>
+      <a href="./zadanie_2_29112025.html" class="text-teal-600 hover:underline text-align: left">← Zadanie 2. Papier, Kamień, Nożyce</a> 
+      
+    </div>
+ 
+ 
+  <div class="mt-12">
+  <footer class="text-center text-gray-500 py-8">
+    <p>Edukacja21 – materiał dla uczniów.</p>
+  </footer>     
+  </div>
+ 
+</body>
+</html>
