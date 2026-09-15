@@ -261,7 +261,7 @@ Nie udajemy, że <strong>  ratujemy świat</strong> .<br /> Czasem próbujemy ut
           <p class="text-sm text-gray-500">
             Opublikowano: ${item.date}, ${item.time}
           </p>
-          <p class="text-gray-700">${item.content}</p>
+         <p class="text-gray-700">${item.content.replace(/\n/g, "<br>")}</p>
         `;
 
         container.appendChild(div);
