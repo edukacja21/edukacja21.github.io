@@ -22,8 +22,9 @@
           miejsce.innerHTML += `
             <article>
               <h2>${wpis.title}</h2>
-              <h3>${wpis.date}</h3>
-              <h3>${wpis.time}</h3>
+              <p class="text-sm text-gray-500">
+                Opublikowano: ${wpis.date}, ${wpis.time}
+              </p>
               <p>${wpis.content}</p>
             </article>
           `;
