@@ -75,7 +75,7 @@
         <p class="text-gray-600">Wczytywanie aktualności...</p>
       </div>
     </section>
-    <!-- ===== KIM JESTEŚMY ===== -->
+
 <!-- ===== KIM JESTEŚMY ===== -->
 <div class="max-w-3xl mx-auto text-center mb-8 bg-white p-8 rounded-lg shadow-md border-l-8 border-teal-500">
   <p class="text-xl text-gray-700 leading-relaxed">
@@ -85,9 +85,8 @@
   </p>
 
   <p class="text-lg text-gray-600 mt-4">
-    Strona jest raczej naszym <strong class="text-amber-700">notatnikiem</strong> niż wizytówką –
-    większość życia dzieje się 
-    <a href="https://www.facebook.com/edukacja21" target="_blank"
+    Strona jest raczej naszym <strong class="text-amber-700">notatnikiem</strong> czy wizytówką –
+    większość życia dzieje się <a href="https://www.facebook.com/edukacja21" target="_blank"
        class="inline-flex items-center gap-1 bg-blue-50 hover:bg-blue-100 text-blue-700 font-medium px-4 py-2 rounded-full transition">
       <span>👉 na Facebooku</span>
     </a>
@@ -176,7 +175,7 @@ Nie udajemy, że <strong>  ratujemy świat</strong> .<br /> Czasem próbujemy ut
         <div class="rounded overflow-hidden shadow hover:shadow-xl transition bg-white">
           <img src="images/matematyka_042025_01.jpg" class="w-full h-64 object-cover object-center rounded-t" />
           <div class="p-4">
-            <h3 class="font-semibold mb-2">Wiosna – Matematyka</h3>
+            <h3 class="font-semibold mb-2">Wiosna 2025 – Matematyka</h3>
             <p class="text-gray-600">Warsztaty ósmoklasistów w salce parafialnej, dużo równań i dużo rozmów o życiu.</p>
           </div>
         </div>
@@ -197,7 +196,7 @@ Nie udajemy, że <strong>  ratujemy świat</strong> .<br /> Czasem próbujemy ut
         <div class="rounded overflow-hidden shadow hover:shadow-xl transition bg-white">
           <img src="images/akademia_2025_01.jpg" class="w-full h-64 object-cover object-center rounded-t" />
           <div class="p-4">
-            <h3 class="font-semibold mb-2">Jesień – Akademia Programowania</h3>
+            <h3 class="font-semibold mb-2">Jesień 2026 – Akademia Programowania</h3>
             <p class="text-gray-600">Pierwsze linie kodu, pierwsze błędy, i ten moment: „działa!”. Jutro zaczyna się dzisiaj.</p>
           </div>
         </div>
@@ -260,10 +259,11 @@ Nie udajemy, że <strong>  ratujemy świat</strong> .<br /> Czasem próbujemy ut
 
         div.innerHTML = `
           <h3 class="text-xl font-semibold text-yellow-800">${item.title}</h3>
-          <p class="text-sm text-gray-500">
+          <p class="text-gray-700">${item.content.replace(/\n/g, "<br>")}</p>
+		   <p class="text-sm text-gray-500">
             Opublikowano: ${item.date}, ${item.time}
           </p>
-         <p class="text-gray-700">${item.content.replace(/\n/g, "<br>")}</p>
+		  <p>  <span>👉 więcej na https://www.facebook.com/edukacja21</span> </p>
         `;
 
         container.appendChild(div);
