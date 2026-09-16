@@ -22,10 +22,13 @@
           miejsce.innerHTML += `
             <article>
               <h2>${wpis.title}</h2>
-              <p class="text-sm text-gray-500">
+               <p>${wpis.content}</p>
+               <p class="text-sm text-gray-500">
                 Opublikowano: ${wpis.date}, ${wpis.time}
               </p>
-              <p>${wpis.content}</p>
+              <p class="text-sm text-gray-500">
+                Więcej na <p>https://www.facebook.com/edukacja21 </p>
+              </p>
             </article>
           `;
         });
