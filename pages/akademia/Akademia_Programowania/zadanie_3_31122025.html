@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>ZADANIE — Hangman (Wisielec)</title>
+  <style>
+    body { background:#f2f2f2; font-family:Arial, sans-serif; }
+    .container { max-width:800px; margin:40px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,0.1); }
+    h1 { font-size:32px; margin-bottom:10px; }
+    .step { background:#eef; padding:15px; border-left:6px solid #446; margin-bottom:20px; border-radius:8px; }
+    pre { background:#111; color:#0f0; padding:15px; overflow:auto; border-radius:6px; }
+    .task { background:#ffe9b5; padding:15px; border-left:6px solid #d09c00; border-radius:8px; margin-top:10px; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>🔥 PROJEKT KOŃCOWY — HANGMAN (Wisielec) 🔥</h1>
+<p>
+Twoja misja: zbudować klasyczną grę <strong>Wisielec</strong> krok po kroku.  
+Nie kopiuj całości. Składaj jak LEGO.  
+Na końcu powstanie prawdziwa gra. 🎮
+</p>
+
+<!-- KROK 1 -->
+<div class="step">
+  <h2>🧠 KROK 1 — Tajemnicze słowo</h2>
+  <p>Na początek program losuje jedno słowo z listy.</p>
+
+<pre>
+import random
+
+slowa = ["python", "kot", "program", "gra", "wisielec"]
+haslo = random.choice(slowa)
+</pre>
+
+  <div class="task">
+    <strong>Zadanie:</strong><br>
+    Wypisz wylosowane słowo (tylko do testów).
+  </div>
+</div>
+
+<!-- KROK 2 -->
+<div class="step">
+  <h2>🔤 KROK 2 — Ukryte hasło</h2>
+  <p>Tworzymy listę podkreśleń zamiast liter.</p>
+
+<pre>
+ukryte = []
+
+for litera in haslo:
+    ukryte.append("_")
+
+print(ukryte)
+</pre>
+
+  <div class="task">
+    <strong>Zadanie:</strong><br>
+    Wyświetl hasło w formie: <code>_ _ _ _</code>
+  </div>
+</div>
+
+<!-- KROK 3 -->
+<div class="step">
+  <h2>⌨️ KROK 3 — Ruch gracza</h2>
+  <p>Gracz zgaduje jedną literę.</p>
+
+<pre>
+litera = input("Podaj literę: ")
+</pre>
+
+  <div class="task">
+    <strong>Zadanie:</strong><br>
+    Sprawdź, czy litera znajduje się w haśle.
+  </div>
+</div>
+
+<!-- KROK 4 -->
+<div class="step">
+  <h2>✅ KROK 4 — Odkrywanie liter</h2>
+
+<pre>
+for i in range(len(haslo)):
+    if haslo[i] == litera:
+        ukryte[i] = litera
+
+print(ukryte)
+</pre>
+
+  <div class="task">
+    <strong>Zadanie:</strong><br>
+    Jeśli litera jest w haśle — odsłoń ją.
+  </div>
+</div>
+
+<!-- KROK 5 -->
+<div class="step">
+  <h2>❤️ KROK 5 — Licznik żyć</h2>
+
+<pre>
+zycia = 6
+
+if litera not in haslo:
+    zycia -= 1
+    print("Błąd! Zostało żyć:", zycia)
+</pre>
+
+  <div class="task">
+    <strong>Zadanie:</strong><br>
+    Zmniejsz liczbę żyć po błędnym strzale.
+  </div>
+</div>
+
+<!-- KROK 6 -->
+<div class="step">
+  <h2>🔁 KROK 6 — Pętla gry</h2>
+
+<pre>
+while zycia > 0 and "_" in ukryte:
+    # zgadywanie litery
+    # sprawdzanie
+    # aktualizacja hasła
+</pre>
+
+  <div class="task">
+    <strong>🔥 ZADANIE FINAŁOWE:</strong><br>
+    Połącz wszystkie kroki w jedną działającą grę Hangman.<br>
+    Gdy nie ma podkreśleń — wygrywasz.<br>
+    Gdy skończą się życia — przegrywasz.
+  </div>
+</div>
+
+<hr>
+
+<h2>🏠 Zadanie domowe (dla chętnych)</h2>
+<ul>
+  <li>Dodaj rysunek wisielca ASCII.</li>
+  <li>Dodaj listę już użytych liter.</li>
+  <li>Wczytaj słowa z pliku <code>slowa.txt</code>.</li>
+</ul>
+
+<p>Powodzenia. To jest prawdziwa gra. 🫡</p>
+
+</div>
+
+</body>
+</html>

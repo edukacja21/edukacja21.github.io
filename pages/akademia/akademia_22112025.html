@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python – Praca z plikami</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Raleway', sans-serif; }
+    pre { background: #1a1a1a; color: #c7ffb0; padding: 16px; border-radius: 6px; }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <header class="bg-gradient-to-r from-blue-700 to-teal-500 text-white py-6 shadow-md mb-8">
+    <h1 class="text-3xl font-bold text-center tracking-wide">
+      Python – Praca z plikami (22-11-2025)
+    </h1>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 pb-24">
+
+   <section class="bg-white p-6 shadow rounded mb-12">
+      <h2 class="text-2xl font-bold mb-3 text-teal-700">0. Sprawdzamy, czy wszystko działa</h2>
+      <p class="mb-4 text-gray-700">
+        <strong> mini-program</strong>.  
+     </p>
+
+     <pre class="mt-4">
+	text = input("Wpisz, co komputer ma powiedzieć? :")
+	print("Napisałeś: "+ text + ", prawda?")
+      </pre>
+    </section>
+
+    <section class="bg-white p-6 shadow rounded mb-12">
+      <h2 class="text-2xl font-bold mb-3 text-teal-700">1. Wczytywanie pliku tekstowego</h2>
+      <p class="mb-4 text-gray-700">
+        Plik musi znajdować się <strong>w tym samym folderze</strong> co program.  
+        Przykład pliku: <code>imiona.txt</code>
+      </p>
+
+      <a href="./imiona.txt" download="imiona.txt" class="text-blue-600 underline">
+    Pobierz plik imiona.txt
+      </a>
+
+      <pre class="mt-4">
+with open("imiona.txt", "r", encoding="utf-8") as plik:
+    zawartosc = plik.read()
+    print(zawartosc)
+      </pre>
+    </section>
+
+    <section class="bg-white p-6 shadow rounded mb-12">
+      <h2 class="text-2xl font-bold mb-3 text-teal-700">2. Wczytywanie linijka po linijce</h2>
+      <pre>
+with open("imiona.txt", "r", encoding="utf-8") as plik:
+    for linia in plik:
+        print(linia.strip())
+      </pre>
+    </section>
+
+    <section class="bg-white p-6 shadow rounded mb-12">
+      <h2 class="text-2xl font-bold mb-3 text-teal-700">3. Tworzenie listy z pliku</h2>
+      <pre>
+imiona = []
+
+with open("imiona.txt", "r", encoding="utf-8") as plik:
+    for linia in plik:
+        imiona.append(linia.strip())
+
+print(imiona)
+      </pre>
+    </section>
+
+    <section class="bg-white p-6 shadow rounded mb-12">
+      <h2 class="text-2xl font-bold mb-3 text-teal-700">4. Losowanie imienia z listy</h2>
+
+      <p class="text-gray-700 mb-3">Korzystamy z modułu <code>random</code>:</p>
+
+      <pre>
+import random
+
+with open("imiona.txt", "r", encoding="utf-8") as plik:
+    imiona = [linia.strip() for linia in plik]
+
+wylosowane = random.choice(imiona)
+print("Wylosowane imię:", wylosowane)
+      </pre>
+
+      <p class="text-gray-600 mt-3 italic">
+        Uwaga: działa tylko wtedy, gdy lista nie jest pusta!
+      </p>
+    </section>
+
+    <section class="bg-white p-6 shadow rounded mb-12">
+      <h2 class="text-2xl font-bold mb-3 text-teal-700">5. Zadanie domowe</h2>
+      <p class="mb-3">Dla chętnych (opcjonalnie):</p>
+      <ul class="list-disc ml-6 text-gray-700">
+        <li>Napisz program, który losuje 2 imiona – parę.</li>
+        <li>Napisz program, który losuje imię, ale nie powtarza tych już wylosowanych.</li>
+        <li>Zrób własny plik np. <code>zwierzeta.txt</code> i poeksperymentuj.</li>
+      </ul>
+    </section>
+
+	</p>
+
+    <div class="mt-12">
+      <a href="/../../index.html" class="text-teal-600 hover:underline">← Powrót na stronę główną</a>
+    </div>
+
+  <footer class="text-center text-gray-500 py-8">
+    <p>Edukacja21 – materiał dla uczniów.</p>
+  </footer>
+
+  </main>
+
+
+
+</body>
+</html>
