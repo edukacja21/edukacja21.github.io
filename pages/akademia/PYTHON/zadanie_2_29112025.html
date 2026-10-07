@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ZADANIE_2 – Kamień / Papier / Nożyce</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    body{background:#f7fafc;font-family:Raleway,Arial,sans-serif}
+    .wrap{max-width:800px;margin:40px auto;background:#fff;padding:28px;border-radius:10px;box-shadow:0 6px 18px rgba(4,7,20,0.06)}
+    h1{font-size:30px;margin-bottom:6px}
+    .lead{color:#475569;margin-bottom:18px}
+    .card{background:#fffbf0;border-left:6px solid #d09c00;padding:14px;border-radius:8px;margin-bottom:18px}
+    pre{background:#0b1220;color:#b7f7b1;padding:14px;overflow:auto;border-radius:6px}
+    .hint{background:#eef6ff;border-left:6px solid #0ea5a4;padding:12px;border-radius:8px;margin-bottom:12px}
+    .tasks{margin-top:12px}
+    .btn{display:inline-block;background:#0ea5a4;color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none}
+    .note{color:#64748b;font-size:13px;margin-top:10px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>🎮 ZADANIE_2 — Kamień / Papier / Nożyce</h1>
+    <p class="lead">Krótka, zabawna gra do nauki <strong>instrukcji warunkowych</strong> (if / elif / else). Ta wersja jest zapisania w najprostszej, najczytelniejszej formie — idealna na pierwszy kontakt z <code>if</code>.</p>
+
+    <div class="hint">
+      <strong>Uwaga:</strong> Nie edytuj długich linijek na telefonie — ustaw urządzenie w poziomie, albo lepiej: użyj laptopa. "Take it easy — no stress." 😉
+    </div>
+
+    <section class="card">
+      <h3>Kod do skopiowania (wersja przyjazna początkującym)</h3>
+      <pre>
+import random
+
+kamien = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+papier = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+nozyce = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+obrazki = [kamien, papier, nozyce]
+
+print("Witaj w grze!")
+user_input = int(input("Co wybierasz? Wpisz: 0 jeśli Kamień, 1 jeśli Papier, 2 jeśli Nożyce\n"))
+
+# Sprawdzamy błędny wybór
+if user_input < 0 or user_input > 2:
+    print("Wprowadzono błędną liczbę. Koniec gry.")
+
+else:
+    print("Twój wybór:")
+    print(obrazki[user_input])
+
+    computer = random.randint(0, 2)
+    print("Komputer wybrał:")
+    print(obrazki[computer])
+
+    # Proste, czytelne ify — najlepsze na start
+    if user_input == computer:
+        print("Remis!")
+
+    elif user_input == 0 and computer == 2:
+        print("Wygrywasz! (Kamień miażdży Nożyce)")
+
+    elif user_input == 1 and computer == 0:
+        print("Wygrywasz! (Papier owija Kamień)")
+
+    elif user_input == 2 and computer == 1:
+        print("Wygrywasz! (Nożyce tną Papier)")
+
+    else:
+        print("Przegrywasz :(")
+      </pre>
+    </section>
+
+    <section class="card">
+      <h3>🔎 Wytłumaczenie krok po kroku</h3>
+      <ul>
+        <li><strong>Linie 1–3:</strong> importujemy <code>random</code> do losowania wyboru komputera.</li>
+        <li><strong>Obrazki:</strong> ASCII-art dla Kamienia / Papieru / Nożyc — fajna nagroda wizualna.</li>
+        <li><strong>Sprawdzenie poprawności:</strong> jeśli uczeń wpisze 5, program kończy się ładnie.</li>
+        <li><strong>Instrukcje warunkowe:</strong> każdy przypadek wygranej wypisany osobno — proste do zrozumienia i poprawiania.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h3>📝 Zadania — co zrobić dalej?</h3>
+      <div class="tasks">
+        <p>1. <strong>Dodaj komentarze</strong> do każdej instrukcji <code>if</code>, tłumacząc po polsku dlaczego to wygrywa.</p>
+        <p>2. <strong>Dodaj licznik rund</strong> — po każdej grze pytaj "Jeszcze raz? (t/n)" i licz ile razy wygrał gracz, a ile komputer.</p>
+        <p>3. <strong>Zmiana grafiki</strong> — zastąp ASCII krótkim emoji (🪨 📄 ✂️) i sprawdź, czy działa tak samo.</p>
+        <p>4. <strong>Wersja punktowa</strong> — daj 1 punkt za wygraną, -1 za przegraną, suma na końcu.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>⭐ Bonus (dla chętnych)</h3>
+      <p>Uprość kod używając słownika <code>wygrywa_z</code> — to lekcja dla zaawansowanych:</p>
+      <pre>
+wygrywa_z = {0:2, 1:0, 2:1}
+if wygrywa_z[user_input] == computer:
+    print("Wygrywasz!")
+      </pre>
+    </section>
+
+    <div class="mt-12" style="display: flex; justify-content: space-between;">
+      <a href="./../akademia_2025.html" class="text-teal-600 hover:underline">← Powrót do wyboru ZADAŃ</a> </p>
+      <a href="./zadanie_1_29112025.html" class="text-teal-600 hover:underline text-align: left">← Zadanie 1. Gra w Statki</a> 
+      <a href="./HangMan_31122025.html" class="text-teal-600 hover:underline text-align: right">Zadanie 3. Gra w HangMan (Wisielec )→ </a>
+    </div>
+ 
+ 
+  <div class="mt-12">
+  <footer class="text-center text-gray-500 py-8">
+    <p>Edukacja21 – materiał dla uczniów.</p>
+  </footer>     
+  </div>
+
+  </main>
+  
+</body>
+</html>
