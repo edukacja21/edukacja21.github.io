@@ -1,34 +1,169 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dokumenty - Edukacja21</title>
-  <link href="https://cdn.tailwindcss.com" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-    }
-  </style>
-</head>
-<body class="bg-gray-50 text-gray-800">
-  <main class="max-w-4xl mx-auto px-6 py-16">
-    <h1 class="text-4xl font-bold text-blue-700 mb-8 text-center">Dokumenty</h1>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <ul class="space-y-4 text-lg">
-      <li>
-        📜 <a href="dokumenty/statut.html" class="text-teal-600 hover:underline" target="_blank">Statut Stowarzyszenia</a>
-      </li>
-      <li>
-        🧾 <a href="dokumenty/regulamin.html" class="text-teal-600 hover:underline" target="_blank">Regulamin działania</a>
-      </li>
-      <li>
-        🔐 <a href="dokumenty/polityka.html" class="text-teal-600 hover:underline" target="_blank">Polityka prywatności</a>
-      </li>
-      <li>
-        📈 <a href="dokumenty/sprawozdanie_2024.html" class="text-teal-600 hover:underline" target="_blank">Sprawozdanie finansowe 2024</a>
-      </li>
-    </ul>
+  <title>Akademia – Edukacja21</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-gradient-to-r from-blue-700 to-teal-500 text-white py-6 shadow-md">
+    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+     <nav>
+        <ul class="flex space-x-6">
+          <li><a href="../index.html" class="hover:underline">Start</a></li>
+          <li><a href="co_robimy.html" class="hover:underline">Co robimy?</a></li>
+          <li><a href="projekty.html" class="hover:underline">Projekty</a></li>
+          <li><a href="akademia.html" class="hover:underline">Akademia</a></li>
+          <li><a href="dokumenty.html" class="hover:underline">Dokumenty</a></li>
+          <li><a href="../index.html#facebook" class="hover:underline">Kontakt</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ===== HELLO BANNER (podstrony – wersja skrócona) ===== -->
+  <section class="relative bg-cover bg-center h-[220px] md:h-[280px]" style="background-image: url('../images/bg_01_test_02.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white">
+      <div class="text-left px-6 max-w-6xl w-full">
+        <h1 class="text-3xl md:text-5xl font-bold mb-3">Edukacja21</h1>
+        <p class="text-lg md:text-xl mb-2">
+          Programowanie, matematyka, robotyka, eksperymenty i projekty.
+        </p>
+        <p class="text-xl md:text-2xl font-semibold">
+          Nie wiem. Sprawdźmy.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pasek z DNA projektu (pod bannerem) -->
+  <div class="bg-gradient-to-r from-teal-600 to-blue-700 text-white py-4">
+    <div class="max-w-6xl mx-auto px-6 flex flex-wrap gap-x-8 gap-y-2 text-base md:text-lg">
+      <span class="font-medium tracking-wide">🌱 Ekologicznie</span>
+      <span class="font-medium tracking-wide">⚡ Energetycznie</span>
+      <span class="font-medium tracking-wide">🖥️ Cyfrowo</span>
+    </div>
+  </div>
+
+  <!-- ===== MAIN ===== -->
+  <main class="max-w-6xl mx-auto px-6 py-12">
+
+    <h2 class="text-center text-3xl font-bold text-blue-700 mb-4">
+      NASZE DOKUMENTY
+    </h2>
+
+    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">
+      Statut Stowarzyszenia, Regulaminy, Polityka Prywatnoćci i Sprawozdania.
+    </p>
+
+    <!-- ===== KAFELKI ===== -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- ===== GŁÓWNY PROJEKT (flagowy, pełna szerokość) ===== -->
+      <a href="akademia/PYTHON/zadanie_1_29112025.html"
+         class="md:col-span-2 block bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+
+        <!-- MIEJSCE NA MINIATURKĘ: dodaj później <img src="../images/python_mini.jpg" ...> tutaj -->
+
+        <div class="p-8">
+          <span class="inline-block text-xs font-semibold bg-blue-100 text-blue-800 px-3 py-1 rounded mb-3">
+            STATUT STOWARZYSZENIA
+          </span>
+
+          <h3 class="text-2xl font-bold mb-3 text-teal-700">
+            STATUT STOWARZYSZENIA
+          </h3>
+
+          <p class="text-gray-600 mb-4">
+            Statut Stowarzyszenia "Edukacja XXI Wieku"
+          </p>
+
+          <p class="text-sm text-gray-500">
+            📂 /akademia/dokumenty/statut.html
+          </p>
+        </div>
+      </a>
+
+      <!-- ===== KAFELEK 2: WKRÓTCE ===== -->
+      <div class="block bg-white p-8 rounded-lg shadow border-2 border-dashed border-gray-300 opacity-75">
+
+        <h3 class="font-semibold mb-2 text-gray-500">
+          WKRÓTCE DOSTĘPNE: Sprawozdanie 2025
+        </h3>
+
+        <p class="text-gray-500 text-sm">
+          Kolejny dokument jest w przygotowaniu.
+        </p>
+
+      </div>
+
+      <!-- ===== KAFELEK 3: WKRÓTCE ===== -->
+      <div class="block bg-white p-8 rounded-lg shadow border-2 border-dashed border-gray-300 opacity-75">
+
+        <h3 class="font-semibold mb-2 text-gray-500">
+          WKRÓTCE DOSTĘPNE: Polityka prywatności
+        </h3>
+
+        <p class="text-gray-500 text-sm">
+          Kolejny moduł Akademii jest w przygotowaniu.
+        </p>
+
+      </div>
+
+    </div>
+
   </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+      <p>© 2026 Edukacja21. Wszystkie prawa zastrzeżone.</p>
+
+      <p class="mt-2">
+        ul. Głogowa 2A, 25-346 Kielce |
+        <a href="mailto:biuro@edukacja21.org.pl" class="hover:underline">
+          ✉ biuro@edukacja21.org.pl
+        </a>
+        | +48 41 34 22 724
+      </p>
+
+      <p class="mt-2">
+        Numer KRS 0001162634 | NIP 6572996877
+      </p>
+
+      <p class="mt-2">
+        <a href="../dokumenty/polityka.html" class="text-teal-400 hover:underline">
+          Polityka prywatności
+        </a>
+        |
+        <a href="../dokumenty/regulamin.html" class="text-teal-400 hover:underline">
+          Regulamin
+        </a>
+      </p>
+
+      <section id="facebook">
+        <div class="mt-4 flex justify-center">
+          <a href="https://www.facebook.com/edukacja21"
+             target="_blank"
+             rel="noopener"
+             class="text-blue-400 hover:text-blue-600 transition">
+            <i class="fab fa-facebook fa-lg"></i>
+          </a>
+        </div>
+      </section>
+
+    </div>
+
+  </footer>
+
 </body>
 </html>
