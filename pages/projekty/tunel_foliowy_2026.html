@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tunel Foliowy 2026 – pomiary temperatury i wilgotności | Edukacja21</title>
+<meta name="description" content="Eksperyment Edukacja21: pomiary temperatury i wilgotności w tunelu foliowym. Sprawdzamy, jak działa instalacja pomiarowa w warunkach ogrodowych i czego można się z niej dowiedzieć.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-gradient-to-r from-blue-700 to-teal-500 text-white py-6 shadow-md">
+    <div class="max-w-6xl mx-auto px-6">
+      <nav aria-label="Menu główne">
+        <ul class="flex flex-wrap gap-x-6 gap-y-3">
+          <li><a href="../../index.html" class="hover:underline">Start</a></li>
+          <li><a href="../co_robimy.html" class="hover:underline">Co robimy?</a></li>
+          <li><a href="../projekty.html" class="hover:underline">Projekty</a></li>
+          <li><a href="../akademia.html" class="hover:underline">Akademia</a></li>
+          <li><a href="../dokumenty.html" class="hover:underline">Dokumenty</a></li>
+          <li><a href="../../index.html#facebook" class="hover:underline">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HELLO BANNER ===== -->
+  <section
+    class="relative bg-cover bg-center h-[220px] md:h-[280px]"
+    style="background-image: url('../../images/bg_01_test_02.jpg');">
+
+    <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center">
+      <div class="max-w-6xl mx-auto w-full px-6 text-white">
+        <h1 class="text-3xl md:text-5xl font-bold mb-3">Edukacja21</h1>
+        <p class="text-lg md:text-xl mb-2">
+          Programowanie, matematyka, robotyka, eksperymenty i projekty.
+        </p>
+        <p class="text-xl md:text-2xl font-semibold">
+          Nie wiem. Sprawdźmy.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pasek z DNA projektu (pod bannerem) -->
+  <div class="bg-gradient-to-r from-teal-600 to-blue-700 text-white py-4">
+    <div class="max-w-6xl mx-auto px-6 flex flex-wrap gap-x-8 gap-y-2 text-base md:text-lg">
+      <span class="font-medium tracking-wide">🌱 Ekologicznie</span>
+      <span class="font-medium tracking-wide">⚡ Energetycznie</span>
+      <span class="font-medium tracking-wide">🖥️ Cyfrowo</span>
+    </div>
+  </div>
+
+  <!-- ===== MAIN ===== -->
+ <body>
+
+<main class="max-w-5xl mx-auto px-6 py-10 md:py-14">
+
+  <p class="text-sm text-gray-500 mb-5">
+    <a href="../projekty.html" class="text-teal-700 hover:underline">
+      Projekty
+    </a>
+    / Tunel Foliowy 2026
+  </p>
+
+  <h2 class="text-3xl md:text-4xl font-bold text-blue-700 mb-4">
+    Tunel Foliowy 2026
+  </h2>
+
+  <p class="text-xl text-teal-700 font-semibold mb-3">
+    Z indoor do outdoor. Sprawdzamy, co naprawdę dzieje się w tunelu.
+  </p>
+
+  <p class="text-gray-600 leading-relaxed mb-8 max-w-3xl">
+    Tunel foliowy miał być outdoorowym przedłużeniem nagrodzonego
+    przez MEN projektu Mikroszklarnia 2.0. Zapowiadały się ekstremalne
+    upały, więc trzeba było działać szybko. Chcieliśmy mierzyć
+    temperaturę i wilgotność, a przy okazji sprawdzić, czy instalacja
+    przygotowana do pracy w pomieszczeniu poradzi sobie w ogrodzie.
+  </p>
+
+
+  <!-- ===== ZDJĘCIA NA GÓRZE ===== -->
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+
+    <figure>
+      <img
+        src="tunel_foliowy_2026/img/instalacja.jpg"
+        alt="Instalacja pomiarowa przygotowana do pracy w tunelu"
+        class="w-full h-64 object-cover rounded-lg shadow">
+      <figcaption class="text-sm text-gray-500 mt-2">
+        Przenosimy pomiary na zewnątrz
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="tunel_foliowy_2026/img/czujniki.jpg"
+        alt="Czujniki temperatury i wilgotności"
+        class="w-full h-64 object-cover rounded-lg shadow">
+      <figcaption class="text-sm text-gray-500 mt-2">
+        DHT22 i trzy DS18B20
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="tunel_foliowy_2026/img/pomidory.jpg"
+        alt="Pomidory rosnące w tunelu foliowym"
+        class="w-full h-64 object-cover rounded-lg shadow">
+      <figcaption class="text-sm text-gray-500 mt-2">
+        Rośliny w prawdziwych warunkach
+      </figcaption>
+    </figure>
+
+  </div>
+
+
+  <!-- ===== HISTORIA ===== -->
+  <article class="space-y-10 leading-relaxed">
+
+    <section>
+      <h3 class="text-2xl font-bold text-blue-700 mb-3">
+        1. Z pomieszczenia do ogrodu
+      </h3>
+
+      <p class="mb-3">
+        Mikroszklarnia 2.0 nie miała kończyć się na pomieszczeniu.
+        Potrzebowaliśmy miejsca na kolejne eksperymenty — tym razem
+        na zewnątrz. Tak powstał Tunel Foliowy 2026.
+      </p>
+
+      <p>
+        Kiedy prognozy zaczęły zapowiadać ekstremalne upały,
+        nie było czasu na długie przygotowania. Chcieliśmy
+        sprawdzić, jakie warunki rzeczywiście panują w tunelu,
+        zamiast opierać się wyłącznie na prognozie pogody.
+      </p>
+    </section>
+
+
+    <section>
+      <h3 class="text-2xl font-bold text-blue-700 mb-3">
+        2. Plan był prosty
+      </h3>
+
+      <p class="mb-3">
+        ESP8266 został w pomieszczeniu, a do tunelu prowadziło
+        30 metrów skrętki UTP. DHT22 mierzył temperaturę i wilgotność
+        względną powietrza. Trzy czujniki DS18B20 miały mierzyć
+        temperaturę na różnych poziomach.
+      </p>
+
+      <p>
+        Do tego pomiar referencyjny. Całość miała pokazać nie tylko,
+        jak gorąco jest w tunelu, ale również czy temperatura
+        różni się w zależności od wysokości.
+      </p>
+
+      <figure class="my-5">
+        <img
+          src="tunel_foliowy_2026/img/sterownik.jpg"
+          alt="Elektronika sterująca instalacją pomiarową"
+          class="w-full max-h-96 object-contain rounded-lg shadow">
+        <figcaption class="text-sm text-gray-500 mt-2">
+          Elektronika w pomieszczeniu, czujniki w terenie.
+        </figcaption>
+      </figure>
+    </section>
+
+
+    <section>
+      <h3 class="text-2xl font-bold text-blue-700 mb-3">
+        3. W ogrodzie nie wszystko zadziałało
+      </h3>
+
+      <p class="mb-3">
+        Na początku wszystko działało. Po przeniesieniu instalacji
+        do ogrodu — już nie całkiem.
+      </p>
+
+      <p class="mb-3">
+        Pomiar referencyjny działał. DHT22 odczytywał dane.
+        Przy DS18B20 pojawiły się kreski zamiast temperatury.
+        Trzy czujniki, jedna magistrala i 30 metrów przewodu.
+        Plan pomiarów temperatury na różnych poziomach
+        nie został zrealizowany tak, jak zakładaliśmy.
+      </p>
+
+      <figure class="my-5">
+        <img
+          src="tunel_foliowy_2026/img/odczyt-ds18b20.jpg"
+          alt="Ekran z kreskami zamiast odczytów temperatury DS18B20"
+          class="w-full max-h-96 object-contain rounded-lg shadow">
+        <figcaption class="text-sm text-gray-500 mt-2">
+          Na początku wszystko działało. Potem... zamiast temperatury: "--"
+        </figcaption>
+      </figure>
+
+      <p>
+        Instalacja została na miejscu. Nie udało się ustalić
+        przyczyny problemu na tyle, żeby przywrócić wszystkie
+        odczyty. Tym razem zaakceptowałem ograniczenia układu.
+        Chciałem poznać warunki panujące w tunelu — i część
+        tej wiedzy udało się zdobyć.
+      </p>
+    </section>
+
+
+    <section>
+      <h3 class="text-2xl font-bold text-blue-700 mb-3">
+        4. Prognoza: 34°C. W tunelu: nawet 48°C
+      </h3>
+
+      <p class="mb-3">
+        Prognoza zapowiadała temperaturę około 34°C.
+        W tunelu zanotowałem nawet 48°C. Rano wilgotność
+        względna regularnie dochodziła do 99,9%.
+      </p>
+
+      <p class="mb-3">
+        To skrajne warunki dla pomidorów. Wysoka temperatura
+        może powodować stres cieplny, a długotrwała wilgotność
+        bliska nasyceniu sprzyja utrzymywaniu się wilgoci
+        na powierzchni roślin i zwiększa ryzyko niektórych chorób.
+      </p>
+
+      <p>
+        Nie mamy kompletnego zapisu wszystkich pomiarów.
+        Zostały zrzuty ekranu z telefonu, z widoczną datą,
+        godziną, temperaturą i wilgotnością. Nie pozwalają
+        odtworzyć całego przebiegu warunków, ale dokumentują
+        to, co udało się zaobserwować.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-5">
+
+        <figure>
+          <img
+            src="tunel_foliowy_2026/img/temperatura.jpg"
+            alt="Zrzut ekranu dokumentujący odczyt temperatury"
+            class="w-full rounded-lg shadow">
+          <figcaption class="text-sm text-gray-500 mt-2">
+            Temperatura — zapis z telefonu
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="tunel_foliowy_2026/img/wilgotnosc.jpg"
+            alt="Zrzut ekranu dokumentujący wilgotność względną"
+            class="w-full rounded-lg shadow">
+          <figcaption class="text-sm text-gray-500 mt-2">
+            Wilgotność względna — zapis z telefonu
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+
+    <section>
+      <h3 class="text-2xl font-bold text-blue-700 mb-3">
+        5. Eksperyment to również przewody i puszka
+      </h3>
+
+      <p class="mb-3">
+        Za pomiarami stoją czujniki, połączenia, przewody
+        i zabezpieczenie elektroniki. Puszka IP64 została
+        dodatkowo zabezpieczona klejem na gorąco.
+        Chciałem, żeby instalacja przetrwała pracę na zewnątrz.
+      </p>
+
+      <p>
+        Samo zabezpieczenie obudowy nie rozwiązuje jednak
+        wszystkich problemów związanych z długimi przewodami,
+        magistralą czujników i pracą w zmiennych warunkach.
+        Tego również trzeba się nauczyć w praktyce.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-5">
+
+        <figure>
+          <img
+            src="tunel_foliowy_2026/img/dht22.jpg"
+            alt="Czujnik DHT22"
+            class="w-full h-56 object-cover rounded-lg shadow">
+          <figcaption class="text-sm text-gray-500 mt-2">
+            DHT22
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="tunel_foliowy_2026/img/ds18b20.jpg"
+            alt="Czujniki DS18B20"
+            class="w-full h-56 object-cover rounded-lg shadow">
+          <figcaption class="text-sm text-gray-500 mt-2">
+            DS18B20
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="tunel_foliowy_2026/img/puszka.jpg"
+            alt="Puszka zabezpieczająca instalację pomiarową"
+            class="w-full h-56 object-cover rounded-lg shadow">
+          <figcaption class="text-sm text-gray-500 mt-2">
+            Instalacja w praktyce
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+
+    <section class="border-l-4 border-teal-500 pl-5 py-1">
+      <h3 class="text-2xl font-bold text-blue-700 mb-3">
+        Co nam to pokazało?
+      </h3>
+
+      <p class="mb-3">
+        Nie udało się zebrać kompletu danych ani zrealizować
+        wszystkich założeń technicznych. Udało się jednak
+        zaobserwować warunki panujące w tunelu i przekonać się,
+        że przeniesienie instalacji z pomieszczenia do ogrodu
+        stawia przed nią nowe wymagania.
+      </p>
+
+      <p class="font-semibold">
+        Czasem eksperyment kończy się nie gotowym rozwiązaniem,
+        ale lepszym rozumieniem problemu. I od tego można
+        zacząć następny.
+      </p>
+    </section>
+
+
+    <section>
+      <h3 class="text-2xl font-bold text-blue-700 mb-3">
+        A następny krok?
+      </h3>
+
+      <p class="mb-3">
+        Tunel nie zamyka tematu pomiarów. To początek dalszych
+        prób z czujnikami, instalacją i zbieraniem danych.
+      </p>
+
+      <p>
+        W kolejnych etapach sprawdzamy rozwiązania, które pozwolą
+        budować węzły pomiarowe i zbierać dane bez prowadzenia
+        długich przewodów do każdego czujnika.
+      </p>
+
+      <p class="font-semibold text-teal-700 mt-4">
+        Bez pajęczyny przewodów. LevelUp!
+      </p>
+    </section>
+
+  </article>
+
+
+  <!-- ===== POWRÓT ===== -->
+  <div class="mt-12 pt-6 border-t border-gray-200">
+    <a href="../projekty.html"
+       class="inline-block text-teal-700 font-semibold hover:underline">
+      ← Wróć do projektów
+    </a>
+  </div>
+
+</main>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <p>© 2026 Edukacja21. Wszystkie prawa zastrzeżone.</p>
+
+      <p class="mt-2">
+        ul. Głogowa 2A, 25-346 Kielce |
+        <a href="mailto:biuro@edukacja21.org.pl" class="hover:underline">
+          ✉ biuro@edukacja21.org.pl
+        </a>
+        | +48 41 34 22 724
+      </p>
+
+      <p class="mt-2">
+        Numer KRS 0001162634 | NIP 6572996877
+      </p>
+
+      <p class="mt-2">
+        <a href="../dokumenty/polityka.html" class="text-teal-400 hover:underline">
+          Polityka prywatności
+        </a>
+        |
+        <a href="../dokumenty/regulamin.html" class="text-teal-400 hover:underline">
+          Regulamin
+        </a>
+      </p>
+
+      <p class="mt-4">
+        <a href="https://www.facebook.com/edukacja21"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="text-blue-400 hover:underline">
+          Edukacja21 na Facebooku
+        </a>
+      </p>
+
+    </div>
+  </footer>
+
+</body>
+</html>

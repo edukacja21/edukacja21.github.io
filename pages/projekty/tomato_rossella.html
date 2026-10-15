@@ -1,10 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Akademia – Edukacja21</title>
+  <title>Pomidor z pomidora – Rosella Crimson | Edukacja21</title>
+  <meta name="description" content="Dokumentacja doświadczenia Edukacja21: ukorzenianie wilków pomidora Rosella Crimson, dwie sadzonki i obserwacja ich wzrostu.">
 
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -13,25 +15,27 @@
 
   <!-- ===== HEADER ===== -->
   <header class="bg-gradient-to-r from-blue-700 to-teal-500 text-white py-6 shadow-md">
-    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
-     <nav>
-        <ul class="flex space-x-6">
-          <li><a href="../index.html" class="hover:underline">Start</a></li>
-          <li><a href="co_robimy.html" class="hover:underline">Co robimy?</a></li>
-          <li><a href="projekty.html" class="hover:underline">Projekty</a></li>
-          <li><a href="akademia.html" class="hover:underline">Akademia</a></li>
-          <li><a href="dokumenty.html" class="hover:underline">Dokumenty</a></li>
-          <li><a href="../index.html#facebook" class="hover:underline">Kontakt</a></li>
+    <div class="max-w-6xl mx-auto px-6">
+      <nav aria-label="Menu główne">
+        <ul class="flex flex-wrap gap-x-6 gap-y-3">
+          <li><a href="../../index.html" class="hover:underline">Start</a></li>
+          <li><a href="../co_robimy.html" class="hover:underline">Co robimy?</a></li>
+          <li><a href="../projekty.html" class="hover:underline">Projekty</a></li>
+          <li><a href="../akademia.html" class="hover:underline">Akademia</a></li>
+          <li><a href="../dokumenty.html" class="hover:underline">Dokumenty</a></li>
+          <li><a href="../../index.html#facebook" class="hover:underline">Kontakt</a></li>
         </ul>
       </nav>
-
     </div>
   </header>
 
-  <!-- ===== HELLO BANNER (podstrony – wersja skrócona) ===== -->
-  <section class="relative bg-cover bg-center h-[220px] md:h-[280px]" style="background-image: url('../images/bg_01_test_02.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white">
-      <div class="text-left px-6 max-w-6xl w-full">
+  <!-- ===== HELLO BANNER ===== -->
+  <section
+    class="relative bg-cover bg-center h-[220px] md:h-[280px]"
+    style="background-image: url('../../images/bg_01_test_02.jpg');">
+
+    <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center">
+      <div class="max-w-6xl mx-auto w-full px-6 text-white">
         <h1 class="text-3xl md:text-5xl font-bold mb-3">Edukacja21</h1>
         <p class="text-lg md:text-xl mb-2">
           Programowanie, matematyka, robotyka, eksperymenty i projekty.
@@ -52,79 +56,242 @@
     </div>
   </div>
 
-
   <!-- ===== MAIN ===== -->
-  <main class="max-w-6xl mx-auto px-6 py-12">
+  <main class="max-w-5xl mx-auto px-6 py-10 md:py-14">
 
-    <h2 class="text-center text-3xl font-bold text-blue-700 mb-4">
-      NASZE DOKUMENTY
-    </h2>
-
-    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">
-      Statut Stowarzyszenia, Regulaminy, Polityka Prywatności i Sprawozdania.
+    <p class="text-sm text-gray-500 mb-5">
+      <a href="../projekty.html" class="text-teal-700 hover:underline">
+        Projekty
+      </a>
+      / Pomidor z pomidora
     </p>
 
-    <!-- ===== KAFELKI ===== -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-blue-700 mb-4">
+      Pomidor z pomidora
+    </h2>
 
-      <!-- ===== GŁÓWNY PROJEKT (flagowy, pełna szerokość) ===== -->
-      <a href="dokumenty/statut.html"
-         class="md:col-span-2 block bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+    <p class="text-xl text-teal-700 font-semibold mb-3">
+      Rosella Crimson. Dwa wilki, dwie nowe rośliny.
+    </p>
 
-        <!-- MIEJSCE NA MINIATURKĘ: dodaj później <img src="../images/python_mini.jpg" ...> tutaj -->
+    <p class="text-gray-600 leading-relaxed mb-8 max-w-3xl">
+      Pod koniec sezonu odcięte pędy pomidora miały trafić do wyrzucenia.
+      Zamiast tego wylądowały w słoiku z wodą. Z ciekawości sprawdziliśmy,
+      czy z takich pędów można uzyskać nowe, samodzielne rośliny.
+    </p>
 
-        <div class="p-8">
-          <span class="inline-block text-xs font-semibold bg-blue-100 text-blue-800 px-3 py-1 rounded mb-3">
-            STATUT STOWARZYSZENIA
-          </span>
+    <!-- ===== ZDJĘCIA NA GÓRZE ===== -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
 
-          <h3 class="text-2xl font-bold mb-3 text-teal-700">
-            STATUT STOWARZYSZENIA
-          </h3>
+      <figure>
+        <img
+          src="../../pages/projekty/Tomato_Rosella/img/rosella_mateczna.jpg"
+          alt="Roślina mateczna pomidora Rosella Crimson"
+          class="w-full h-64 object-cover rounded-lg shadow">
+        <figcaption class="text-sm text-gray-500 mt-2">
+          Roślina mateczna
+        </figcaption>
+      </figure>
 
-          <p class="text-gray-600 mb-4">
-            Statut Stowarzyszenia "Edukacja XXI Wieku"
-          </p>
+      <figure>
+        <img
+          src="Tomato_Rosella/img/rosella_korzenie_woda.jpg"
+          alt="Korzenie na pędach pomidora ukorzenianych w wodzie"
+          class="w-full h-64 object-cover rounded-lg shadow">
+        <figcaption class="text-sm text-gray-500 mt-2">
+          Od pędu do sadzonki
+        </figcaption>
+      </figure>
 
-          <p class="text-sm text-gray-500">
-            📂 /akademia/dokumenty/statut.html
-          </p>
+      <figure>
+        <img
+          src="Tomato_Rosella/img/rosella_trzy_rosliny.jpg"
+          alt="Roślina mateczna i dwie młode rośliny uzyskane z ukorzenionych pędów"
+          class="w-full h-64 object-cover rounded-lg shadow">
+        <figcaption class="text-sm text-gray-500 mt-2">
+          Trzy rośliny, jedna historia
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <!-- ===== HISTORIA ===== -->
+    <article class="space-y-10 leading-relaxed">
+
+      <section>
+        <h3 class="text-2xl font-bold text-blue-700 mb-3">
+          1. Wszystko zaczęło się od rośliny matecznej
+        </h3>
+
+        <p class="mb-3">
+          Rosella Crimson rosła w ogrodzie w donicy o pojemności 20 litrów.
+          Pod koniec sezonu przeniosłem ją do tunelu foliowego, licząc na to,
+          że część owoców zdąży dojrzeć. Roślina odchorowała przenosiny,
+          a część pędów wymagała usunięcia.
+        </p>
+
+        <p>
+          Odcięte pędy, nazywane wilkami, zwykle się usuwa. Tym razem
+          postanowiłem sprawdzić, czy można je ukorzenić i uzyskać z nich
+          kolejne rośliny. Nie był to planowany od początku eksperyment.
+          Pomysł pojawił się w trakcie pielęgnacji pomidora.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-bold text-blue-700 mb-3">
+          2. Słoik po Nutelli zamiast laboratorium
+        </h3>
+
+        <p class="mb-3">
+          Pędy trafiły do wody na parapecie. Początkowo nie miały korzeni.
+          Po pewnym czasie pojawiły się białe przyrosty, które stopniowo
+          stawały się coraz wyraźniejsze.
+        </p>
+
+        <p>
+          Na zdjęciach z 31 sierpnia widać już korzenie. 6 września
+          sadzonki miały ich znacznie więcej i można było przygotować
+          je do dalszej uprawy.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-bold text-blue-700 mb-3">
+          3. Dwie sadzonki, dwie doniczki
+        </h3>
+
+        <p class="mb-3">
+          Ukorzenione pędy trafiły do ziemi. Młode rośliny rosły w dwóch
+          kwadratowych doniczkach, które różniły się wysokością i objętością.
+        </p>
+
+        <div class="overflow-x-auto my-5">
+          <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="p-3 border-b">Doniczka</th>
+                <th class="p-3 border-b">Wysokość</th>
+                <th class="p-3 border-b">Objętość</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="p-3 border-b">Wyższa</td>
+                <td class="p-3 border-b">21 cm</td>
+                <td class="p-3 border-b">ok. 1,90 l</td>
+              </tr>
+              <tr>
+                <td class="p-3 border-b">Niższa</td>
+                <td class="p-3 border-b">13 cm</td>
+                <td class="p-3 border-b">ok. 1,65 l</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+
+        <p>
+          Różnica objętości wynosiła około 0,25 litra. Doniczki nie różniły
+          się więc wyłącznie wysokością. To ważne, bo nie możemy na tej
+          podstawie stwierdzić, że za późniejsze różnice we wzroście
+          odpowiadał sam kształt pojemnika.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-bold text-blue-700 mb-3">
+          4. Dwie rośliny, dwa charaktery
+        </h3>
+
+        <p class="mb-3">
+          Po kilku tygodniach obie sadzonki były dobrze rozwinięte,
+          ale wyraźnie się od siebie różniły.
+        </p>
+
+        <p class="mb-3">
+          Jedna była zwarta, krępa i mocno rozgałęziona. Wyglądała tak
+          dobrze, że chętnie zostawiłbym ją w tunelu i obserwował dalej.
+          Druga rosła smuklej, miała mniej rozgałęzień i sprawiała
+          wrażenie, jakby bardziej goniła za światłem.
+        </p>
+
+        <p>
+          Na obu roślinach pojawiły się pąki kwiatowe. Na smuklejszej
+          sadzonce pojawiły się również pierwsze kwiaty, ale sczerniały.
+          Nie kontynuowaliśmy obserwacji na tyle długo, by sprawdzić,
+          jak dalej przebiegałby ich rozwój.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-bold text-blue-700 mb-3">
+          5. Korzenie na zakończenie
+        </h3>
+
+        <p class="mb-3">
+          7 października zakończyłem doświadczenie. Wyjąłem młode rośliny
+          z doniczek i wypłukałem ziemię, żeby zobaczyć ich systemy korzeniowe.
+          Korzenie obu sadzonek były białe i dobrze rozwinięte.
+        </p>
+
+        <p>
+          Zestawienie roślin matecznej i potomnych zamyka tę historię:
+          dwa odcięte pędy, które miały zostać wyrzucone, stały się
+          dwiema nowymi roślinami.
+        </p>
+      </section>
+
+      <section class="border-l-4 border-teal-500 pl-5 py-1">
+        <h3 class="text-2xl font-bold text-blue-700 mb-3">
+          Co nam to pokazało?
+        </h3>
+
+        <p class="mb-3">
+          Udało się ukorzenić dwa pędy pomidora i uzyskać dwie samodzielne
+          rośliny. Zaobserwowaliśmy też różnice w ich pokroju.
+        </p>
+
+        <p class="mb-3">
+          Nie wiemy, czy wynikały z różnic między sadzonkami, warunków
+          na parapecie, doniczek, czy z kilku czynników jednocześnie.
+          Mieliśmy tylko po jednej roślinie w każdym wariancie.
+          To obserwacja i punkt wyjścia do kolejnych pytań, a nie
+          rozstrzygający test.
+        </p>
+
+        <p class="font-semibold">
+          Czasem eksperyment zaczyna się od prostego pytania:
+          „A co się stanie, jeśli tego nie wyrzucę?”.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-bold text-blue-700 mb-3">
+          A gdyby pójść krok dalej?
+        </h3>
+
+        <p>
+          Doświadczenie biologiczne może stać się początkiem projektu
+          z elektroniki i programowania. Temperaturę można mierzyć,
+          wilgotność podłoża monitorować, a wyniki analizować w Pythonie.
+          Najpierw obserwujemy. Potem mierzymy. Na końcu próbujemy
+          zrozumieć, co pokazują nam dane.
+        </p>
+      </section>
+
+    </article>
+
+    <div class="mt-12 pt-6 border-t border-gray-200">
+      <a href="../projekty.html"
+         class="inline-block text-teal-700 font-semibold hover:underline">
+        ← Wróć do projektów
       </a>
-
-      <!-- ===== KAFELEK 2: WKRÓTCE ===== -->
-      <div class="block bg-white p-8 rounded-lg shadow border-2 border-dashed border-gray-300 opacity-75">
-
-        <h3 class="font-semibold mb-2 text-gray-500">
-          WKRÓTCE DOSTĘPNE: Sprawozdanie 2025
-        </h3>
-
-        <p class="text-gray-500 text-sm">
-          Kolejny dokument jest w przygotowaniu.
-        </p>
-
-      </div>
-
-      <!-- ===== KAFELEK 3: WKRÓTCE ===== -->
-      <div class="block bg-white p-8 rounded-lg shadow border-2 border-dashed border-gray-300 opacity-75">
-
-        <h3 class="font-semibold mb-2 text-gray-500">
-          WKRÓTCE DOSTĘPNE: Polityka prywatności
-        </h3>
-
-        <p class="text-gray-500 text-sm">
-          Kolejny moduł Akademii jest w przygotowaniu.
-        </p>
-
-      </div>
-
     </div>
 
   </main>
 
   <!-- ===== FOOTER ===== -->
   <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
-
     <div class="max-w-6xl mx-auto px-6">
 
       <p>© 2026 Edukacja21. Wszystkie prawa zastrzeżone.</p>
@@ -151,19 +318,16 @@
         </a>
       </p>
 
-      <section id="facebook">
-        <div class="mt-4 flex justify-center">
-          <a href="https://www.facebook.com/edukacja21"
-             target="_blank"
-             rel="noopener"
-             class="text-blue-400 hover:text-blue-600 transition">
-            <i class="fab fa-facebook fa-lg"></i>
-          </a>
-        </div>
-      </section>
+      <p class="mt-4">
+        <a href="https://www.facebook.com/edukacja21"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="text-blue-400 hover:underline">
+          Edukacja21 na Facebooku
+        </a>
+      </p>
 
     </div>
-
   </footer>
 
 </body>

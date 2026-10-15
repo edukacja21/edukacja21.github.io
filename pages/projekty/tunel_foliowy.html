@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tunel Foliowy 2026 | Edukacja21</title>
+
+    <meta name="description"
+          content="Tunel Foliowy 2026 — przeniesienie pomiarów z Mikroszklarni 2.0 do ogrodu. Czujniki, ekstremalne temperatury i prawdziwe warunki eksperymentu.">
+
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+
+    <main class="project-page">
+
+        <!-- TYTUŁ -->
+
+        <header class="project-header">
+            <p class="project-label">PROJEKTY · 2026</p>
+
+            <h1>Tunel Foliowy 2026</h1>
+
+            <p class="project-intro">
+                Z indoor do outdoor. Przenosimy pomiary
+                z pomieszczenia do ogrodu i sprawdzamy,
+                jakie warunki naprawdę panują w tunelu foliowym.
+            </p>
+        </header>
+
+
+        <!-- ZDJĘCIA OTWIERAJĄCE -->
+
+        <section class="project-gallery" aria-label="Dokumentacja projektu">
+
+            <figure>
+                <img src="../images/tunel/instalacja.jpg"
+                     alt="Elektronika i instalacja pomiarowa"
+                     loading="lazy">
+                <figcaption>Stanowisko pomiarowe</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images/tunel/czujniki.jpg"
+                     alt="Czujniki temperatury przygotowane do pomiarów"
+                     loading="lazy">
+                <figcaption>Temperatura i wilgotność</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images/tunel/pomidory.jpg"
+                     alt="Pomidory rosnące w tunelu"
+                     loading="lazy">
+                <figcaption>Warunki, które chcieliśmy poznać</figcaption>
+            </figure>
+
+        </section>
+
+
+        <!-- SKĄD POMYSŁ -->
+
+        <section class="project-section">
+
+            <h2>Po co nam tunel?</h2>
+
+            <p>
+                Mikroszklarnia 2.0, projekt nagrodzony przez MEN,
+                nie miała kończyć się na pomieszczeniu.
+                Potrzebowaliśmy miejsca na kolejne eksperymenty —
+                tym razem na zewnątrz.
+            </p>
+
+            <p>
+                Kiedy prognozy zaczęły zapowiadać ekstremalne
+                upały, nie było czasu na długie przygotowania.
+                Powstał układ pomiarowy, który miał pomóc
+                poznać mikroklimat tunelu foliowego.
+            </p>
+
+        </section>
+
+
+        <!-- INSTALACJA -->
+
+        <section class="project-section">
+
+            <h2>Plan był prosty</h2>
+
+            <p>
+                ESP8266 pozostał w pomieszczeniu.
+                Do tunelu prowadziło 30 metrów skrętki UTP.
+                Za pomiary odpowiadały:
+            </p>
+
+            <ul>
+                <li>DHT22 — temperatura i wilgotność względna powietrza,</li>
+                <li>3 × DS18B20 — temperatura na trzech poziomach,</li>
+                <li>pomiar referencyjny — punkt odniesienia.</li>
+            </ul>
+
+            <p>
+                Chodziło o przeniesienie rozwiązania znanego
+                z indoor do outdoor. Bez budowania wszystkiego
+                od początku.
+            </p>
+
+            <figure class="project-image">
+                <img src="../images/tunel/sterownik.jpg"
+                     alt="ESP8266 i elementy instalacji pomiarowej"
+                     loading="lazy">
+                <figcaption>
+                    Elektronika w pomieszczeniu, czujniki w terenie.
+                </figcaption>
+            </figure>
+
+        </section>
+
+
+        <!-- CO SIĘ WYDARZYŁO -->
+
+        <section class="project-section">
+
+            <h2>W ogrodzie nie wszystko zadziałało</h2>
+
+            <p>
+                Na początku wszystko działało.
+                Po przeniesieniu instalacji do ogrodu —
+                już nie całkiem.
+            </p>
+
+            <p>
+                DHT22 odczytywał dane. Pomiar referencyjny
+                działał. Przy DS18B20 pojawiły się kreski
+                zamiast temperatury.
+            </p>
+
+            <figure class="project-image">
+                <img src="../images/tunel/odczyt-ds18b20.jpg"
+                     alt="Ekran z niedostępnymi odczytami DS18B20"
+                     loading="lazy">
+                <figcaption>
+                    Zamiast temperatury: --.
+                </figcaption>
+            </figure>
+
+            <p>
+                Trzy czujniki temperatury miały pomóc porównać
+                warunki na różnych poziomach tunelu.
+                Tego założenia nie udało się w pełni zrealizować.
+            </p>
+
+        </section>
+
+
+        <!-- WARUNKI -->
+
+        <section class="project-section">
+
+            <h2>34°C w prognozie. Nawet 48°C w tunelu.</h2>
+
+            <p>
+                Prognoza zapowiadała temperaturę około 34°C.
+                Tymczasem w tunelu zanotowałem nawet 48°C.
+                Rano wilgotność względna regularnie dochodziła
+                do 99,9%.
+            </p>
+
+            <p>
+                Nie zachował się kompletny zapis wszystkich
+                pomiarów. Zostały jednak zrzuty ekranu z datami,
+                godzinami, temperaturą i wilgotnością.
+                Pokazują one, w jakich warunkach prowadziliśmy
+                obserwacje.
+            </p>
+
+            <div class="project-gallery">
+
+                <figure>
+                    <img src="../images/tunel/temperatura.jpg"
+                         alt="Zrzut ekranu z odczytem temperatury"
+                         loading="lazy">
+                    <figcaption>Temperatura</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="../images/tunel/wilgotnosc.jpg"
+                         alt="Zrzut ekranu z odczytem wilgotności względnej"
+                         loading="lazy">
+                    <figcaption>Wilgotność względna</figcaption>
+                </figure>
+
+            </div>
+
+            <p>
+                Takie warunki stanowią duże obciążenie dla
+                roślin. Tunel foliowy nie gwarantuje stabilnego,
+                korzystnego mikroklimatu — dlatego właśnie
+                chcieliśmy go mierzyć, zamiast zgadywać.
+            </p>
+
+        </section>
+
+
+        <!-- DOKUMENTACJA TECHNICZNA -->
+
+        <section class="project-section">
+
+            <h2>Tak wygląda eksperyment od kuchni</h2>
+
+            <p>
+                Czujniki, przewody, połączenia i puszka
+                zabezpieczająca elektronikę. Nie wszystko
+                zadziałało zgodnie z planem, ale instalacja
+                pozwoliła poznać część warunków panujących
+                w tunelu.
+            </p>
+
+            <div class="project-gallery">
+
+                <figure>
+                    <img src="../images/tunel/dht22.jpg"
+                         alt="Czujnik DHT22"
+                         loading="lazy">
+                    <figcaption>DHT22</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="../images/tunel/ds18b20.jpg"
+                         alt="Czujniki DS18B20"
+                         loading="lazy">
+                    <figcaption>DS18B20</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="../images/tunel/puszka.jpg"
+                         alt="Puszka zabezpieczająca elementy instalacji"
+                         loading="lazy">
+                    <figcaption>Instalacja w praktyce</figcaption>
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- ZAKOŃCZENIE -->
+
+        <section class="project-ending">
+
+            <h2>Co dalej?</h2>
+
+            <p>
+                Czy udało się zrealizować wszystkie założenia?
+                Nie.
+            </p>
+
+            <p>
+                Czy dowiedzieliśmy się czegoś o tunelu?
+                Tak.
+            </p>
+
+            <p class="project-highlight">
+                Czasem eksperyment kończy się nie gotowym
+                rozwiązaniem, ale lepszym rozumieniem problemu.
+                I od tego można zacząć następny.
+            </p>
+
+        </section>
+
+
+        <!-- NASTĘPNY ETAP -->
+
+        <nav class="project-next" aria-label="Kolejny projekt">
+
+            <p class="project-label">CIĄG DALSZY</p>
+
+            <h2>Linia pomiarowa</h2>
+
+            <p>
+                Kolejny etap to długoterminowe pomiary
+                w budynku i sprawdzanie, jak zmieniają się
+                warunki w czasie.
+            </p>
+
+            <!-- Dodaj link, gdy strona kolejnego projektu będzie gotowa. -->
+            <!--
+            <a href="linia_pomiarowa.html">
+                Zobacz kolejny projekt →
+            </a>
+            -->
+
+        </nav>
+
+    </main>
+
+</body>
+</html>
+```
