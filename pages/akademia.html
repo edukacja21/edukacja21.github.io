@@ -6,6 +6,7 @@
 
   <title>Akademia – Edukacja21</title>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -15,7 +16,7 @@
   <header class="bg-gradient-to-r from-blue-700 to-teal-500 text-white py-6 shadow-md">
     <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
      <nav>
-        <ul class="flex space-x-6">
+        <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm md:text-base md:space-x-6">
           <li><a href="../index.html" class="hover:underline">Start</a></li>
           <li><a href="co_robimy.html" class="hover:underline">Co robimy?</a></li>
           <li><a href="projekty.html" class="hover:underline">Projekty</a></li>
@@ -91,18 +92,23 @@
         </div>
       </a>
 
-      <!-- ===== KAFELEK 2: WKRÓTCE ===== -->
-      <div class="block bg-white p-8 rounded-lg shadow border-2 border-dashed border-gray-300 opacity-75">
+      <!-- ===== KAFELEK 2: OTWARTA SZUFLADA ===== -->
+      <a href="akademia/szuflada/index.html"
+         class="block bg-white p-8 rounded-lg shadow hover:shadow-lg transition">
+	<div>
+        <span class="inline-block text-xs font-semibold bg-teal-100 text-teal-800 px-3 py-1 rounded mb-3">
+          NOWA SERIA · start wkrótce
+        </span>
 
-        <h3 class="font-semibold mb-2 text-gray-500">
-          WKRÓTCE DOSTĘPNE
+        <h3 class="text-xl font-bold mb-2 text-teal-700">
+          Otwarta szuflada
         </h3>
 
-        <p class="text-gray-500 text-sm">
-          Kolejny moduł Akademii jest w przygotowaniu.
+        <p class="text-gray-600 text-sm">
+          Wyciągamy z szuflady ESP32 i czujniki. Sprawdzamy, czy działają, i zapisujemy, co pokazał monitor portu. Od zera, bez kupowania.
         </p>
-
-      </div>
+	</div>
+      </a>
 
       <!-- ===== KAFELEK 3: WKRÓTCE ===== -->
       <div class="block bg-white p-8 rounded-lg shadow border-2 border-dashed border-gray-300 opacity-75">

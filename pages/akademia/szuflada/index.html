@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Otwarta szuflada – Akademia – Edukacja21</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- ===== HEADER (linki od katalogu głównego, żeby działały z każdej głębokości) ===== -->
+  <header class="bg-gradient-to-r from-blue-700 to-teal-500 text-white py-6 shadow-md">
+    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+     <nav>
+        <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm md:text-base md:space-x-6">
+          <li><a href="/index.html" class="hover:underline">Start</a></li>
+          <li><a href="../../co_robimy.html" class="hover:underline">Co robimy?</a></li>
+          <li><a href="../../projekty.html" class="hover:underline">Projekty</a></li>
+          <li><a href="../../akademia.html" class="hover:underline">Akademia</a></li>
+          <li><a href="../../dokumenty.html" class="hover:underline">Dokumenty</a></li>
+          <li><a href="/index.html#facebook" class="hover:underline">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="max-w-3xl mx-auto px-6 py-12">
+
+    <p class="text-sm text-gray-500 mb-4">
+      <a href="/pages/akademia.html" class="text-teal-700 hover:underline">Akademia</a> / Otwarta szuflada
+    </p>
+
+    <h1 class="text-3xl md:text-4xl font-bold text-blue-700 mb-4">
+      Otwarta szuflada
+    </h1>
+
+    <p class="text-lg text-gray-700 mb-4">
+      Z szuflady wyciągamy ESP32, kilka czujników i trochę przewodów. Nie kupujemy niczego nowego.
+    </p>
+
+    <p class="text-gray-600 mb-4">
+      Sprawdzamy, czy układ w ogóle działa, podłączamy czujniki jeden po drugim i zapisujemy, co pokazał monitor portu. Jeśli coś nie działa, to też jest odcinek: opisujemy, dlaczego, i co pomogło.
+    </p>
+
+    <p class="text-gray-600 mb-10">
+      Seria prowadzi do konkretnego zadania: pomiarów temperatury i wilgotności w domowej piwnicy, gdzie przechowujemy warzywa.
+    </p>
+
+    <h2 class="text-2xl font-bold text-teal-700 mb-4">Odcinki</h2>
+
+    <ol class="space-y-4 mb-12">
+
+      <li class="bg-white rounded-lg shadow p-5">
+        <h3 class="font-semibold text-gray-800">0. Co jest w szufladzie</h3>
+        <p class="text-sm text-gray-600 mt-1">Inwentarz: zdjęcie, lista, co to jest i czy w ogóle wiemy. Kabel USB z danymi, a nie tylko do ładowania.</p>
+        <p class="text-xs text-gray-400 mt-2">W przygotowaniu</p>
+      </li>
+
+      <li class="bg-white rounded-lg shadow p-5">
+        <h3 class="font-semibold text-gray-800">1. ESP32-C3: pierwsze uruchomienie</h3>
+        <p class="text-sm text-gray-600 mt-1">Arduino IDE, wybór płytki, wgranie programu. Co pokaże monitor portu.</p>
+        <p class="text-xs text-gray-400 mt-2">W przygotowaniu</p>
+      </li>
+
+      <li class="bg-white rounded-lg shadow p-5">
+        <h3 class="font-semibold text-gray-800">2. DHT22 i SHT31 obok siebie</h3>
+        <p class="text-sm text-gray-600 mt-1">Dwa czujniki, te same warunki. Ile się różnią i któremu ufać?</p>
+        <p class="text-xs text-gray-400 mt-2">W przygotowaniu</p>
+      </li>
+
+      <li class="bg-white rounded-lg shadow p-5">
+        <h3 class="font-semibold text-gray-800">3. Jak daleko od ESP</h3>
+        <p class="text-sm text-gray-600 mt-1">Ile metrów przewodu zniesie każdy czujnik, zanim zacznie pokazywać NAN.</p>
+        <p class="text-xs text-gray-400 mt-2">W przygotowaniu</p>
+      </li>
+
+      <li class="bg-white rounded-lg shadow p-5">
+        <h3 class="font-semibold text-gray-800">4. DS18B20 na 1-Wire</h3>
+        <p class="text-sm text-gray-600 mt-1">Dwa czujniki na jednym przewodzie. Adresy, rezystor podciągający, który jest który.</p>
+        <p class="text-xs text-gray-400 mt-2">W przygotowaniu</p>
+      </li>
+
+      <li class="bg-white rounded-lg shadow p-5">
+        <h3 class="font-semibold text-gray-800">5. Do piwnicy</h3>
+        <p class="text-sm text-gray-600 mt-1">Sprawdzone elementy trafiają na miejsce. Dalszy ciąg w projekcie o piwnicy.</p>
+        <p class="text-xs text-gray-400 mt-2">W przygotowaniu</p>
+      </li>
+
+    </ol>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+      <p>© 2026 Edukacja21. Wszystkie prawa zastrzeżone.</p>
+
+      <p class="mt-2">
+        ul. Głogowa 2A, 25-346 Kielce |
+        <a href="mailto:biuro@edukacja21.org.pl" class="hover:underline">
+          ✉ biuro@edukacja21.org.pl
+        </a>
+        | +48 41 34 22 724
+      </p>
+
+      <p class="mt-2">
+        Numer KRS 0001162634 | NIP 6572996877
+      </p>
+
+      <p class="mt-2">
+        <a href="../../dokumenty/polityka.html" class="text-teal-400 hover:underline">
+          Polityka prywatności
+        </a>
+        |
+        <a href="../../dokumenty/regulamin.html" class="text-teal-400 hover:underline">
+          Regulamin
+        </a>
+      </p>
+
+      <p class="mt-4">
+        <a href="https://www.facebook.com/edukacja21"
+           target="_blank"
+           rel="noopener"
+           class="text-blue-400 hover:text-blue-600 transition">
+            <i class="fab fa-facebook fa-lg"></i>
+          </a>
+      </p>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
