@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Karta obserwacji: Mój owies</title>
+<style>
+  @page { size: A4; margin: 0; }
+  body { margin: 0; font-family: sans-serif; background: #fff; }
+  .page {
+    width: 210mm; height: 297mm; padding: 18mm 16mm; box-sizing: border-box;
+    position: relative; font-size: 11pt; color: #000;
+  }
+  h1 { font-size: 17pt; margin: 0 0 2mm 0; font-weight: bold; }
+  .sub { font-size: 8.5pt; color: #555; margin-bottom: 4mm; }
+  .meta { display: flex; justify-content: space-between; font-size: 8pt; margin-bottom: 4mm; }
+  h2 { font-size: 9.5pt; margin: 4mm 0 1.5mm 0; }
+  p { font-size: 8pt; margin: 0 0 2mm 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 8pt; margin-bottom: 3mm; }
+  th, td { border: 1px solid #999; padding: 2mm; text-align: left; }
+  th { background: #f2f2f2; }
+  td { height: 9mm; }
+  .chart {
+    position: relative; width: 100%; height: 70mm; border-left: 1px solid #000;
+    border-bottom: 1px solid #000; margin: 6mm 0 2mm 10mm; box-sizing: border-box;
+  }
+  .gridline { position: absolute; left: 0; right: 0; border-top: 1px dashed #ccc; }
+  .ylabel { position: absolute; left: -9mm; font-size: 7pt; transform: translateY(-50%); }
+  .xlabel { position: absolute; bottom: -6mm; font-size: 7pt; transform: translateX(-50%); }
+  .hint { font-size: 7pt; color: #444; margin-top: 6mm; }
+  .footer { position: absolute; bottom: 12mm; left: 16mm; right: 16mm; font-size: 7pt; color: #666; text-align: center; }
+  .lines { margin-bottom: 3mm; }
+  .lines .lbl { font-size: 7pt; margin-bottom: 1mm; }
+  .line { border-bottom: 1px solid #000; height: 8mm; }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>KARTA OBSERWACJI: MÓJ OWIES</h1>
+  <div class="sub">Nie wiem. Sprawdźmy. • Edukacja21</div>
+
+  <div class="meta">
+    <span>Imię: ______________________________</span>
+    <span>Data wysiewu: ____________________</span>
+  </div>
+
+  <h2>1. Mierzę i zapisuję</h2>
+  <p>Co kilka dni zmierz wysokość owsa od powierzchni ziemi do czubka najwyższej rośliny. Zapisz datę i wynik w centymetrach.</p>
+
+  <table>
+    <thead>
+      <tr><th style="width:20%">Data</th><th style="width:20%">Wysokość (cm)</th><th>Co zauważyłem / zauważyłam?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h2>2. Rysuję wykres wzrostu</h2>
+  <p>Zaznacz wysokość owsa dla kolejnych pomiarów. Potem połącz punkty linią.</p>
+
+  <div class="chart">
+    <!-- linie siatki i etykiety osi Y -->
+    <div class="gridline" style="top:0%"></div><span class="ylabel" style="top:0%">20</span>
+    <div class="gridline" style="top:25%"></div><span class="ylabel" style="top:25%">15</span>
+    <div class="gridline" style="top:50%"></div><span class="ylabel" style="top:50%">10</span>
+    <div class="gridline" style="top:75%"></div><span class="ylabel" style="top:75%">5</span>
+    <div class="gridline" style="top:100%"></div><span class="ylabel" style="top:100%">0</span>
+    <!-- etykiety osi X -->
+    <span class="xlabel" style="left:0%">1</span>
+    <span class="xlabel" style="left:25%">2</span>
+    <span class="xlabel" style="left:50%">3</span>
+    <span class="xlabel" style="left:75%">4</span>
+    <span class="xlabel" style="left:100%">5</span>
+  </div>
+  <div style="text-align:center;font-size:7pt;margin-top:2mm;">Kolejny pomiar</div>
+  <div style="font-size:7pt;margin-top:1mm;">cm</div>
+
+  <h2>3. Zastanawiam się</h2>
+  <div class="lines">
+    <div class="lbl">Co zauważyłem / zauważyłam?</div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <div class="lines">
+    <div class="lbl">Co może wydarzyć się dalej?</div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <p class="hint">Wskazówka: mierz podobnie za każdym razem. Owies może rosnąć inaczej u różnych osób — właśnie dlatego prowadzimy obserwacje.</p>
+
+  <div class="footer">Edukacja21 • Eksperymenty zaczynają się od ciekawości.</div>
+</div>
+</body>
+</html>
