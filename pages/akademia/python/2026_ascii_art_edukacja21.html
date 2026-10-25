@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python – ASCII ART | Edukacja21</title>
+  <style>
+    :root {
+      --ink: #222;
+      --muted: #555;
+      --paper: #fff;
+      --page: #f4f4f1;
+      --accent: #276749;
+      --code-bg: #202522;
+      --code-fg: #e1f4d7;
+      --line: #d8ded8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--page);
+    }
+    header {
+      padding: 2rem 1rem;
+      text-align: center;
+      color: white;
+      background: #315d48;
+    }
+    header h1 { margin: 0 0 .35rem; font-size: clamp(1.8rem, 4vw, 2.5rem); }
+    header p { margin: 0; }
+    main { width: min(900px, calc(100% - 2rem)); margin: 2rem auto 4rem; }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: clamp(1rem, 3vw, 1.6rem);
+      margin-bottom: 1.5rem;
+    }
+    h2 { margin-top: 0; color: var(--accent); }
+    h3 { margin-bottom: .4rem; }
+    p { margin: .6rem 0 1rem; }
+    .step { color: var(--muted); font-size: .95rem; }
+    pre {
+      overflow-x: auto;
+      padding: 1rem;
+      border-radius: 6px;
+      background: var(--code-bg);
+      color: var(--code-fg);
+      line-height: 1.45;
+      font: .95rem/1.45 Consolas, "Courier New", monospace;
+      white-space: pre;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: #edf1ed;
+      padding: .1rem .25rem;
+      border-radius: 3px;
+    }
+    pre code { background: transparent; padding: 0; }
+    .output {
+      background: #fafafa;
+      border: 1px dashed #aab5aa;
+      padding: 1rem;
+      border-radius: 6px;
+      font: 1rem/1.35 Consolas, "Courier New", monospace;
+      white-space: pre;
+      overflow-x: auto;
+    }
+    .note {
+      border-left: 4px solid #7b9e79;
+      padding: .5rem .9rem;
+      background: #f2f7f0;
+    }
+    footer { text-align: center; color: var(--muted); padding: 1.5rem; font-size: .9rem; }
+    @media print {
+      body { background: white; }
+      header { background: white; color: black; border-bottom: 2px solid black; }
+      main { width: 100%; margin: 1rem auto; }
+      section { break-inside: avoid; box-shadow: none; }
+      pre { background: #f2f2f2; color: black; border: 1px solid #bbb; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Python: ASCII ART</h1>
+    <p>Rysujemy tekstem — pudełka i rakiety</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Pudełko — od powtarzania do pętli</h2>
+      <p>Wpisz kod w Thonny i uruchom program. Zmieniaj liczbę znaków, spacje oraz wysokość pudełka. Zobacz, jak zmienia się rysunek.</p>
+
+      <h3>Pudełko 00 — każdy znak osobno</h3>
+      <pre><code>print("################")
+print("#              #")
+print("#              #")
+print("#              #")
+print("#              #")
+print("#              #")
+print("################")</code></pre>
+
+      <h3>Pudełko 01 — powtarzanie znaku</h3>
+      <pre><code>print("#" * 16)
+print("#              #")
+print("#              #")
+print("#              #")
+print("#              #")
+print("#              #")
+print("#" * 16)</code></pre>
+
+      <h3>Pudełko 02 — pętla i warunek</h3>
+      <pre><code>print("🙂 ASCII 🙂\\n")
+print("*" * 20)
+print()
+
+w, h = 14, 6
+
+for y in range(h):
+    if y in (0, h - 1):
+        print("#" * w)
+    else:
+        print("#" + " " * (w - 2) + "#")</code></pre>
+
+      <p class="step">Spróbuj zmienić wartości <code>w</code> i <code>h</code>. Co oznaczają? Co się stanie, gdy zwiększysz wysokość, a co — szerokość?</p>
+      <p class="note">Ważne: w ostatnim przykładzie szerokość pudełka jest liczona w znakach. Wiersze środkowe składają się z lewej kratki, spacji i prawej kratki.</p>
+    </section>
+
+    <section>
+      <h2>2. Rakieta — rysunek z tekstu</h2>
+      <p>W Pythonie zwykły tekst można wypisywać w kilku liniach. Na początek uruchom prostą wersję, a potem spróbuj ją zmieniać.</p>
+
+      <h3>Rakieta 00 — znak po znaku</h3>
+      <pre><code>print("   /\\\\\\")
+print("  /   \\\\")
+print(" /_____\\\\")
+print(" |     |")
+print(" |NASA |")
+print(" |_____|")
+print("  /---\\\\")
+print("  |   |")</code></pre>
+
+      <h3>Rakieta 01 — osobne linie</h3>
+      <pre><code>print("    /\\\\")
+print("   /  \\\\")
+print("  /    \\\\")
+print(" |      |")
+print(" | NASA |")
+print(" |      |")
+print(" |______|")
+print("   /--\\\\")
+print("   |  |")
+print("   |  |")
+print("   *****")</code></pre>
+
+      <h3>Rakieta 02 — potrójny cudzysłów</h3>
+      <pre><code>print(r"""
+       /\\
+      /  \\
+     /____\\
+     |    |
+     |NASA|
+     |    |
+     |____|
+      /--\\
+      |  |
+""")</code></pre>
+
+      <p class="step">W wersji z potrójnym cudzysłowem cały rysunek jest jednym tekstem. Litera <code>r</code> przed cudzysłowem sprawia, że ukośniki odwrotne są traktowane dosłownie.</p>
+    </section>
+
+    <section>
+      <h2>3. Dlaczego czasem trzeba wpisać <code>\\</code>?</h2>
+      <p>W zwykłym łańcuchu tekstowym Python traktuje ukośnik odwrotny <code>\\</code> jako początek sekwencji specjalnej. Na przykład <code>\\n</code> oznacza nową linię, a <code>\\t</code> — tabulator.</p>
+      <p>Aby wypisać jeden ukośnik odwrotny, w zwykłym tekście wpisujemy dwa:</p>
+      <pre><code>print("\\")</code></pre>
+      <p>Można też użyć surowego łańcucha tekstowego, poprzedzając cudzysłów literą <code>r</code>:</p>
+      <pre><code>print(r"\\")</code></pre>
+      <p>Oba przykłady wypiszą jeden znak <code>\\</code>.</p>
+    </section>
+
+    <section>
+      <h2>4. Własny projekt</h2>
+      <ul>
+        <li>Narysuj pudełko o innych wymiarach.</li>
+        <li>Dodaj do rakiety własny napis.</li>
+        <li>Narysuj domek, robota albo statek kosmiczny.</li>
+        <li>Spróbuj wykonać rysunek za pomocą pętli zamiast wpisywać każdy wiersz osobno.</li>
+      </ul>
+    </section>
+
+
+    <section>
+      <h2>5. Dalsze inspiracje</h2>
+      <p>Jeśli chcesz zobaczyć więcej przykładów albo sprawdzić inne pomysły, zajrzyj tutaj:</p>
+      <ul>
+        <li>
+          <a href="https://www.asciiart.eu/" target="_blank" rel="noopener noreferrer">ASCII Art Archive</a>
+          — galeria rysunków złożonych ze znaków. Dobra do szukania pomysłów na własny rysunek.
+          <br><small>Jeśli wykorzystujesz cudzy rysunek, zachowaj podpis lub inicjały autora, jeśli są podane.</small>
+        </li>
+        <li>
+          <a href="https://inascii.com/" target="_blank" rel="noopener noreferrer">InASCII — generator ASCII art</a>
+          — zamienia tekst w duże napisy z liter i znaków; potrafi też przekształcać obrazy. Według opisu serwisu przetwarzanie odbywa się w przeglądarce, bez wysyłania plików na serwer.
+        </li>
+        <li>
+          <a href="https://pythonturtle.org/" target="_blank" rel="noopener noreferrer">PythonTurtle</a>
+          — kolejny krok: zamiast układać obraz ze znaków, można rysować za pomocą poleceń Pythona i „żółwia” na ekranie.
+        </li>
+      </ul>
+      <p class="note">Wskazówka: najpierw spróbuj narysować coś samodzielnie w Thonny. Strony z przykładami mają podsuwać pomysły, a nie zastępować własne próby. Nie wpisuj na zewnętrznych stronach danych osobowych ani nie przesyłaj prywatnych zdjęć.</p>
+    </section>
+
+    <footer>Edukacja21 — materiał dla uczniów</footer>
+  </main>
+</body>
+</html>
