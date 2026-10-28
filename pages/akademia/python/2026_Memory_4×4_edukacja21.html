@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mini-projekt Python: Memory 4×4 — kamień milowy. Plansza ASCII, pętle, listy i zagadki z błędami.">
+  <title>Memory 4×4 — kamień milowy | Edukacja21</title>
+  <style>
+    :root {
+      --ink: #222;
+      --muted: #555;
+      --paper: #fff;
+      --page: #f4f4f1;
+      --accent: #276749;
+      --code-bg: #202522;
+      --code-fg: #e1f4d7;
+      --line: #d8ded8;
+      --gold: #a97800;
+      --gold-soft: #fff6df;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--page);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #fff;
+      background: #315d48;
+    }
+    header h1 { margin: 0 0 .35rem; font-size: clamp(1.8rem, 4vw, 2.5rem); }
+    header p { margin: 0; opacity: .95; }
+    main {
+      flex: 1 0 auto;
+      width: min(900px, calc(100% - 2rem));
+      margin: 2rem auto 3rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: clamp(1rem, 3vw, 1.6rem);
+      margin-bottom: 1.5rem;
+    }
+    h2 { margin-top: 0; color: var(--accent); }
+    h3 { margin-bottom: .4rem; }
+    p { margin: .6rem 0 1rem; }
+    ul { margin: .5rem 0 1rem; padding-left: 1.4rem; }
+    li { margin: .45rem 0; }
+    .step { color: var(--muted); font-size: .95rem; }
+    pre {
+      overflow-x: auto;
+      padding: 1rem;
+      border-radius: 6px;
+      background: var(--code-bg);
+      color: var(--code-fg);
+      line-height: 1.45;
+      font: .95rem/1.45 Consolas, "Courier New", monospace;
+      white-space: pre;
+      tab-size: 4;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: #edf1ed;
+      padding: .1rem .25rem;
+      border-radius: 3px;
+    }
+    pre code { background: transparent; padding: 0; color: inherit; }
+    .task {
+      border-left: 4px solid var(--gold);
+      background: var(--gold-soft);
+      padding: .8rem 1rem;
+      border-radius: 0 6px 6px 0;
+      margin-top: 1rem;
+    }
+    .task strong { display: block; margin-bottom: .25rem; color: #6f5100; }
+    .note {
+      border-left: 4px solid #7b9e79;
+      padding: .5rem .9rem;
+      background: #f2f7f0;
+      border-radius: 0 6px 6px 0;
+    }
+    .puzzle {
+      border-left: 4px solid #7b6fb0;
+      background: #f4f1fb;
+      padding: .8rem 1rem;
+      border-radius: 0 6px 6px 0;
+      margin-top: 1rem;
+    }
+    .puzzle strong { display: block; margin-bottom: .25rem; color: #4a3d7a; }
+    footer {
+      flex-shrink: 0;
+      width: 100%;
+      padding: 1.25rem 1rem;
+      margin-top: auto;
+      background: #315d48;
+      color: #e8f1ea;
+      text-align: center;
+      font-size: .85rem;
+    }
+    footer .footer-inner { max-width: 900px; margin: 0 auto; }
+    footer p { margin: .25rem 0; }
+    @media print {
+      body { background: #fff; }
+      header { background: #fff; color: #000; border-bottom: 2px solid #000; }
+      main { width: 100%; margin: 1rem auto; }
+      section { break-inside: avoid; box-shadow: none; }
+      pre { background: #f2f2f2; color: #000; border: 1px solid #bbb; }
+      footer { background: #fff; color: #333; border-top: 1px solid #bbb; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🧠 Memory 4×4 — kamień milowy</h1>
+    <p>Plansza ASCII, pętle, listy i zagadki z błędami</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. O czym jest ten materiał</h2>
+      <p>To <strong>kamień milowy</strong>, nie pierwsze ćwiczenie. Zakładamy, że znasz już <code>while</code>, listy i <code>if</code>. Tutaj łączymy to w większy program: planszę 4×4, rysowanie ASCII, czyszczenie ekranu i sprawdzanie par.</p>
+      <p class="note"><strong>Uwaga:</strong> ten kod działa dla poprawnych danych. Twoje zadanie to znaleźć miejsca, w których się wywala, i zastanowić się, jak je zabezpieczyć. To część nauki — nie błąd materiału.</p>
+    </section>
+
+    <section>
+      <h2>2. Kod do skopiowania</h2>
+      <p>Uruchom w Thonny. Graj tak długo, aż znajdziesz wszystkie 8 par. Potem wróć do sekcji z zagadkami.</p>
+      <pre><code>import random
+import os
+import time
+
+# Przygotowujemy 8 par emoji lub liter
+karty = ["😀","🐱","🌟","🍎","🎵","⚽","🚗","🌈"] * 2
+random.shuffle(karty)
+
+# Na początku wszystkie pola zakryte
+odkryte = []
+for i in range(16):
+    odkryte.append(False)
+
+pary = 0
+proby = 0
+
+while pary &lt; 8:
+    os.system("cls" if os.name == "nt" else "clear")
+
+    print("   1     2     3     4")
+    print()
+
+    # RYSOWANIE PLANSZY ASCII
+    for rzad in range(4):
+        linia1 = chr(65+rzad) + " "
+        linia2 = "  "
+        linia3 = "  "
+
+        for kol in range(4):
+            i = rzad*4 + kol
+            if odkryte[i]:
+                linia1 += "+-+  "
+                linia2 += "|" + karty[i] + "|  "
+                linia3 += "+-+  "
+            else:
+                linia1 += "###  "
+                linia2 += "# #  "
+                linia3 += "###  "
+
+        print(linia1)
+        print(linia2)
+        print(linia3)
+        print()
+
+    print("Znalezione pary:", pary, "/ 8")
+    print("Próby:", proby)
+    print()
+
+    # --- WYBÓR 1. ---
+    w1 = input("Pierwsze pole (np. A1): ").strip()
+    r1 = ord(w1[0].upper()) - 65
+    k1 = int(w1[1]) - 1
+    i1 = r1*4 + k1
+
+    while odkryte[i1]:
+        print("To pole jest już odkryte!")
+        w1 = input("Pierwsze pole (np. A1): ").strip()
+        r1 = ord(w1[0].upper()) - 65
+        k1 = int(w1[1]) - 1
+        i1 = r1*4 + k1
+
+    odkryte[i1] = True
+
+    # Rysujemy ponownie planszę
+    os.system("cls" if os.name == "nt" else "clear")
+
+    print("   1     2     3     4\n")
+    for rzad in range(4):
+        l1 = chr(65+rzad) + " "
+        l2 = "  "
+        l3 = "  "
+        for kol in range(4):
+            i = rzad*4 + kol
+            if odkryte[i]:
+                l1 += "+-+  "
+                l2 += "|" + karty[i] + "|  "
+                l3 += "+-+  "
+            else:
+                l1 += "###  "
+                l2 += "# #  "
+                l3 += "###  "
+        print(l1)
+        print(l2)
+        print(l3)
+        print()
+
+    # --- WYBÓR 2. ---
+    w2 = input("Drugie pole (np. B3): ").strip()
+    r2 = ord(w2[0].upper()) - 65
+    k2 = int(w2[1]) - 1
+    i2 = r2*4 + k2
+
+    while i2 == i1 or odkryte[i2]:
+        print("Nieprawidłowe pole, spróbuj jeszcze raz.")
+        w2 = input("Drugie pole (np. B3): ").strip()
+        r2 = ord(w2[0].upper()) - 65
+        k2 = int(w2[1]) - 1
+        i2 = r2*4 + k2
+
+    odkryte[i2] = True
+
+    # Rysujemy z drugim wyborem
+    os.system("cls" if os.name == "nt" else "clear")
+
+    print("   1     2     3     4\n")
+    for rzad in range(4):
+        l1 = chr(65+rzad) + " "
+        l2 = "  "
+        l3 = "  "
+        for kol in range(4):
+            i = rzad*4 + kol
+            if odkryte[i]:
+                l1 += "+-+  "
+                l2 += "|" + karty[i] + "|  "
+                l3 += "+-+  "
+            else:
+                l1 += "###  "
+                l2 += "# #  "
+                l3 += "###  "
+        print(l1)
+        print(l2)
+        print(l3)
+        print()
+
+    proby += 1
+
+    # SPRAWDZAMY PARĘ
+    if karty[i1] == karty[i2]:
+        print("BRAWO! To para!")
+        pary += 1
+    else:
+        print("To nie para :(")
+        time.sleep(1)
+        odkryte[i1] = False
+        odkryte[i2] = False
+
+    time.sleep(0.5)
+
+os.system("cls" if os.name == "nt" else "clear")
+print("GRATULACJE! Znalazłeś wszystkie pary w", proby, "próbach!")</code></pre>
+    </section>
+
+    <section>
+      <h2>3. Zagadki — co się stanie, gdy…</h2>
+      <p>Uruchom program i spróbuj odpowiedzieć <strong>najpierw na kartce</strong>, potem sprawdź w Thonny. To nie jest test — to ćwiczenie z czytania kodu.</p>
+
+      <div class="puzzle">
+        <strong>Zagadka 1 — A zamiast A1</strong>
+        Co się stanie, gdy wpiszesz <code>A</code> (bez cyfry) jako pierwsze pole? Dlaczego? W którym miejscu kodu program się zatrzyma?
+      </div>
+
+      <div class="puzzle">
+        <strong>Zagadka 2 — A5</strong>
+        Co się stanie, gdy wpiszesz <code>A5</code>? Czy program się wywali, czy „cicho” zaznaczy inne pole? Policz: <code>r1 = ord('A') - 65 = 0</code>, <code>k1 = 5 - 1 = 4</code>, czyli <code>i1 = 0*4 + 4 = 4</code>. Które to pole na planszy?
+      </div>
+
+      <div class="puzzle">
+        <strong>Zagadka 3 — zakres A1–D4</strong>
+        Jak sprawdzić, czy pole mieści się w zakresie <code>A1–D4</code>? Zapisz warunek, który to sprawdza — zanim program spróbuje użyć <code>w1[1]</code> albo <code>odkryte[i1]</code>. Podpowiedź: potrzebne są dwa sprawdzenia — jedno dla litery, drugie dla cyfry.
+      </div>
+
+      <div class="puzzle">
+        <strong>Zagadka 4 — powtórzone rysowanie</strong>
+        W kodzie plansza rysowana jest <strong>trzy razy</strong> (przed wyborem 1, po wyborze 1, po wyborze 2). Za każdym razem ten sam blok <code>for rzad in range(4)</code>. Spróbuj wydzielić to do funkcji <code>rysuj_plansze(odkryte, karty)</code>. Co trzeba jej przekazać? Co zwraca?
+      </div>
+
+      <p class="note"><strong>Wskazówka do zagadki 3:</strong> zamiast <code>int(w1[1])</code> możesz najpierw sprawdzić, czy <code>w1</code> ma dokładnie 2 znaki, czy pierwszy znak to litera A–D, a drugi to cyfra 1–4. Dopiero potem liczyć <code>i1</code>.</p>
+    </section>
+
+    <section>
+      <h2>4. Zadania — co zrobić dalej?</h2>
+      <div class="task">
+        <strong>1. Zabezpiecz wejście</strong>
+        Dodaj sprawdzanie, czy pole mieści się w zakresie A1–D4. Program nie może się wywalić — ma poprosić o ponowne wpisanie.
+      </div>
+      <div class="task">
+        <strong>2. Wydziel funkcję</strong>
+        Przenieś rysowanie planszy do funkcji <code>rysuj_plansze(odkryte, karty)</code> i wywołuj ją w trzech miejscach zamiast kopiować kod.
+      </div>
+      <div class="task">
+        <strong>3. Licznik prób</strong>
+        Czy licznik <code>proby</code> rośnie w dobrym miejscu? Sprawdź, czy nie liczy podwójnie, gdy gracz trafi parę.
+      </div>
+      <div class="task">
+        <strong>4. Wersja na 4 pary</strong>
+        Zmień planszę na 2×4 (8 kart, 4 pary) i sprawdź, co trzeba zmienić w kodzie: rozmiar listy, pętlę rysowania, warunek końca.
+      </div>
+    </section>
+
+    <section>
+      <h2>5. Bonus (dla chętnych)</h2>
+      <p>Po opanowaniu podstaw spróbuj dodać <strong>podpowiedź</strong>: po 10 nieudanych próbach program na chwilę pokazuje wszystkie karty. Zastanów się, gdzie w kodzie to wstawić i jak zrobić „chwilę” — czy <code>time.sleep</code> wystarczy?</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p><strong>Edukacja21</strong> — materiał dla uczniów.</p>
+    </div>
+  </footer>
+</body>
+</html>
