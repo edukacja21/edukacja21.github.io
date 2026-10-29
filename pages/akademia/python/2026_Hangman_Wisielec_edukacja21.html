@@ -2,157 +2,258 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>ZADANIE — Hangman (Wisielec)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projekt końcowy Python: Hangman (Wisielec) krok po kroku — listy, pętle, input i ASCII.">
+  <title>Hangman (Wisielec) — projekt końcowy | Edukacja21</title>
   <style>
-    body { background:#f2f2f2; font-family:Arial, sans-serif; }
-    .container { max-width:800px; margin:40px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,0.1); }
-    h1 { font-size:32px; margin-bottom:10px; }
-    .step { background:#eef; padding:15px; border-left:6px solid #446; margin-bottom:20px; border-radius:8px; }
-    pre { background:#111; color:#0f0; padding:15px; overflow:auto; border-radius:6px; }
-    .task { background:#ffe9b5; padding:15px; border-left:6px solid #d09c00; border-radius:8px; margin-top:10px; }
-  footer { text-align: center; color: var(--muted); padding: 1.5rem; font-size: .9rem; }
+    :root {
+      --ink: #222;
+      --muted: #555;
+      --paper: #fff;
+      --page: #f4f4f1;
+      --accent: #276749;
+      --code-bg: #202522;
+      --code-fg: #e1f4d7;
+      --line: #d8ded8;
+      --gold: #a97800;
+      --gold-soft: #fff6df;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--page);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #fff;
+      background: #315d48;
+    }
+    header h1 { margin: 0 0 .35rem; font-size: clamp(1.8rem, 4vw, 2.5rem); }
+    header p { margin: 0; opacity: .95; }
+    main {
+      flex: 1 0 auto;
+      width: min(900px, calc(100% - 2rem));
+      margin: 2rem auto 3rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: clamp(1rem, 3vw, 1.6rem);
+      margin-bottom: 1.5rem;
+    }
+    h2 { margin-top: 0; color: var(--accent); }
+    h3 { margin-bottom: .4rem; }
+    p { margin: .6rem 0 1rem; }
+    ul { margin: .5rem 0 1rem; padding-left: 1.4rem; }
+    li { margin: .45rem 0; }
+    .step-label { color: var(--muted); font-size: .85rem; font-weight: bold; letter-spacing: .08em; text-transform: uppercase; }
+    pre {
+      overflow-x: auto;
+      padding: 1rem;
+      border-radius: 6px;
+      background: var(--code-bg);
+      color: var(--code-fg);
+      line-height: 1.45;
+      font: .95rem/1.45 Consolas, "Courier New", monospace;
+      white-space: pre;
+      tab-size: 4;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: #edf1ed;
+      padding: .1rem .25rem;
+      border-radius: 3px;
+    }
+    pre code { background: transparent; padding: 0; color: inherit; }
+    .task {
+      border-left: 4px solid var(--gold);
+      background: var(--gold-soft);
+      padding: .8rem 1rem;
+      border-radius: 0 6px 6px 0;
+      margin-top: 1rem;
+    }
+    .task strong { display: block; margin-bottom: .25rem; color: #6f5100; }
+    .note {
+      border-left: 4px solid #7b9e79;
+      padding: .5rem .9rem;
+      background: #f2f7f0;
+      border-radius: 0 6px 6px 0;
+    }
+    footer {
+      flex-shrink: 0;
+      width: 100%;
+      padding: 1.25rem 1rem;
+      margin-top: auto;
+      background: #315d48;
+      color: #e8f1ea;
+      text-align: center;
+      font-size: .85rem;
+    }
+    footer .footer-inner { max-width: 900px; margin: 0 auto; }
+    footer p { margin: .25rem 0; }
     @media print {
-      body { background: white; }
-      header { background: white; color: black; border-bottom: 2px solid black; }
+      body { background: #fff; }
+      header { background: #fff; color: #000; border-bottom: 2px solid #000; }
       main { width: 100%; margin: 1rem auto; }
       section { break-inside: avoid; box-shadow: none; }
-      pre { background: #f2f2f2; color: black; border: 1px solid #bbb; }
+      pre { background: #f2f2f2; color: #000; border: 1px solid #bbb; }
+      footer { background: #fff; color: #333; border-top: 1px solid #bbb; }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>🔥 Hangman (Wisielec)</h1>
+    <p>Projekt końcowy — budujemy grę krok po kroku</p>
+  </header>
 
-<div class="container">
+  <main>
+    <section>
+      <h2>1. O czym jest ten projekt</h2>
+      <p>Zbudujesz klasyczną grę Wisielec <strong>krok po kroku</strong>. Każdy krok to osobny fragment programu. Na końcu połączysz wszystko w jedną działającą grę.</p>
+      <p class="note"><strong>Uwaga:</strong> nie kopiuj całego kodu naraz. Uruchamiaj każdy krok osobno, sprawdzaj, co się dzieje, i dopiero potem przechodź dalej. To jest projekt — ma być złożony świadomie, nie wklejony.</p>
+    </section>
 
-<h1>🔥 PROJEKT KOŃCOWY — HANGMAN (Wisielec) 🔥</h1>
-<p>Twoja misja: zbudować klasyczną grę <strong>Wisielec</strong> krok po kroku.  
-Nie kopiuj całości. Składaj jak LEGO.  
-Na końcu powstanie prawdziwa gra. 🎮
-</p>
-
-<!-- KROK 1 -->
-<div class="step">
-  <h2>🧠 KROK 1 — Tajemnicze słowo</h2>
-  <p>Na początek program losuje jedno słowo z listy.</p>
-
-<pre>
-import random
+    <section>
+      <span class="step-label">Krok 1</span>
+      <h2>🧠 Lista słów i losowanie hasła</h2>
+      <p>Najpierw wybieramy jedno tajemnicze słowo.</p>
+      <pre><code>import random
 
 slowa = ["python", "kot", "program", "gra", "wisielec"]
-haslo = random.choice(slowa)
-</pre>
+haslo = random.choice(slowa)</code></pre>
+      <div class="task">
+        <strong>Zadanie</strong>
+        Wypisz hasło w konsoli (tylko do testów).
+      </div>
+    </section>
 
-  <div class="task">
-    <strong>Zadanie:</strong><br>
-    Wypisz wylosowane słowo (tylko do testów).
-  </div>
-</div>
-
-<!-- KROK 2 -->
-<div class="step">
-  <h2>🔤 KROK 2 — Ukryte hasło</h2>
-  <p>Tworzymy listę podkreśleń zamiast liter.</p>
-
-<pre>
-ukryte = []
+    <section>
+      <span class="step-label">Krok 2</span>
+      <h2>🔤 Ukryte hasło</h2>
+      <p>Tworzymy listę podkreśleń zamiast liter.</p>
+      <pre><code>ukryte = []
 
 for litera in haslo:
     ukryte.append("_")
 
-print(ukryte)
-</pre>
+print(" ".join(ukryte))</code></pre>
+      <div class="task">
+        <strong>Zadanie</strong>
+        Wyświetl hasło w formie: <code>_ _ _ _</code>
+      </div>
+    </section>
 
-  <div class="task">
-    <strong>Zadanie:</strong><br>
-    Wyświetl hasło w formie: <code>_ _ _ _</code>
-  </div>
-</div>
+    <section>
+      <span class="step-label">Krok 3</span>
+      <h2>❤️ Licznik żyć</h2>
+      <p>Gracz ma ograniczoną liczbę prób.</p>
+      <pre><code>zycia = 6
+print("Masz", zycia, "żyć.")</code></pre>
+      <div class="task">
+        <strong>Zadanie</strong>
+        Wyświetl liczbę żyć na starcie gry.
+      </div>
+    </section>
 
-<!-- KROK 3 -->
-<div class="step">
-  <h2>⌨️ KROK 3 — Ruch gracza</h2>
-  <p>Gracz zgaduje jedną literę.</p>
+    <section>
+      <span class="step-label">Krok 4</span>
+      <h2>⌨️ Ruch gracza</h2>
+      <p>Gracz podaje jedną literę.</p>
+      <pre><code>litera = input("Podaj literę: ").lower()</code></pre>
+      <div class="task">
+        <strong>Zadanie</strong>
+        Sprawdź, czy gracz podał jedną literę.
+      </div>
+    </section>
 
-<pre>
-litera = input("Podaj literę: ")
-</pre>
+    <section>
+      <span class="step-label">Krok 5</span>
+      <h2>📋 Lista użytych liter</h2>
+      <pre><code>uzyte_litery = []
 
-  <div class="task">
-    <strong>Zadanie:</strong><br>
-    Sprawdź, czy litera znajduje się w haśle.
-  </div>
-</div>
+if litera not in uzyte_litery:
+    uzyte_litery.append(litera)
 
-<!-- KROK 4 -->
-<div class="step">
-  <h2>✅ KROK 4 — Odkrywanie liter</h2>
+print("Użyte litery:", uzyte_litery)</code></pre>
+      <div class="task">
+        <strong>Zadanie</strong>
+        Nie pozwól zgadywać tej samej litery drugi raz.
+      </div>
+    </section>
 
-<pre>
-for i in range(len(haslo)):
-    if haslo[i] == litera:
-        ukryte[i] = litera
+    <section>
+      <span class="step-label">Krok 6</span>
+      <h2>✅ Sprawdzanie trafienia</h2>
+      <pre><code>if litera in haslo:
+    for i in range(len(haslo)):
+        if haslo[i] == litera:
+            ukryte[i] = litera
+else:
+    zycia -= 1</code></pre>
+      <div class="task">
+        <strong>Zadanie</strong>
+        Odkryj wszystkie wystąpienia litery lub zabierz życie.
+      </div>
+    </section>
 
-print(ukryte)
-</pre>
+    <section>
+      <span class="step-label">Krok 7</span>
+      <h2>🖼️ Wisielec jako lista</h2>
+      <p>Każdy etap gry to jeden rysunek.</p>
+      <pre><code>wisielec = [
+  "ETAP 0",
+  "ETAP 1",
+  "ETAP 2",
+  "ETAP 3",
+  "ETAP 4",
+  "ETAP 5",
+  "ETAP 6"
+]
 
-  <div class="task">
-    <strong>Zadanie:</strong><br>
-    Jeśli litera jest w haśle — odsłoń ją.
-  </div>
-</div>
+print(wisielec[6 - zycia])</code></pre>
+      <div class="task">
+        <strong>Zadanie</strong>
+        Zastąp napisy rysunkami ASCII.
+      </div>
+    </section>
 
-<!-- KROK 5 -->
-<div class="step">
-  <h2>❤️ KROK 5 — Licznik żyć</h2>
+    <section>
+      <span class="step-label">Krok 8</span>
+      <h2>🔁 Pętla gry</h2>
+      <pre><code>while zycia &gt; 0 and ukryte.count("_") &gt; 0:
+    # pytamy o literę
+    # sprawdzamy trafienie
+    # aktualizujemy hasło</code></pre>
+      <div class="task">
+        <strong>ZADANIE FINAŁOWE</strong>
+        Połącz wszystkie kroki w jeden działający program Hangman.
+      </div>
+    </section>
 
-<pre>
-zycia = 6
-
-if litera not in haslo:
-    zycia -= 1
-    print("Błąd! Zostało żyć:", zycia)
-</pre>
-
-  <div class="task">
-    <strong>Zadanie:</strong><br>
-    Zmniejsz liczbę żyć po błędnym strzale.
-  </div>
-</div>
-
-<!-- KROK 6 -->
-<div class="step">
-  <h2>🔁 KROK 6 — Pętla gry</h2>
-
-<pre>
-while zycia > 0 and "_" in ukryte:
-    # zgadywanie litery
-    # sprawdzanie
-    # aktualizacja hasła
-</pre>
-
-  <div class="task">
-    <strong>🔥 ZADANIE FINAŁOWE:</strong><br>
-    Połącz wszystkie kroki w jedną działającą grę Hangman.<br>
-    Gdy nie ma podkreśleń — wygrywasz.<br>
-    Gdy skończą się życia — przegrywasz.
-  </div>
-</div>
-
-<hr>
-
-<h2>🏠 Zadanie domowe (dla chętnych)</h2>
-<ul>
-  <li>Dodaj rysunek wisielca ASCII.</li>
-  <li>Dodaj listę już użytych liter.</li>
-  <li>Wczytaj słowa z pliku <code>slowa.txt</code>.</li>
-</ul>
-
-<p>Powodzenia. To jest prawdziwa gra. 🫡</p>
-
-</div>
-
-    <footer>Edukacja21 — materiał dla uczniów</footer>
+    <section>
+      <h2>🏠 Zadanie domowe (dla chętnych)</h2>
+      <ul>
+        <li>Wczytaj słowa z pliku <code>slowa.txt</code></li>
+        <li>Dodaj licznik prób</li>
+        <li>Dodaj komunikat wygranej i przegranej</li>
+      </ul>
+      <p class="note">To jest pełna gra. Gratulacje. 🫡</p>
+    </section>
   </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p><strong>Edukacja21</strong> — materiał dla uczniów.</p>
+    </div>
+  </footer>
 </body>
 </html>
-
