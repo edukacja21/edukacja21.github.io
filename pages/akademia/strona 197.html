@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Okręgi styczne — karta pracy (bez modulo) | Edukacja21</title>
+<style>
+  :root{
+    --ink:#222;
+    --muted:#555;
+    --paper:#fff;
+    --page:#f4f4f1;
+    --accent:#276749;
+    --line:#d8ded8;
+    --soft:#f2f7f0;
+    --dash:#aab5aa;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:1.55;
+    color:var(--ink);
+    background:var(--page);
+  }
+  header{
+    padding:1.4rem 1rem;
+    text-align:center;
+    color:#fff;
+    background:#315d48;
+  }
+  header h1{margin:0 0 .25rem;font-size:clamp(1.4rem,3.5vw,2rem);}
+  header p{margin:0;font-size:.95rem;}
+  main{width:min(820px,calc(100% - 2rem));margin:1.6rem auto 3rem;}
+  section{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:clamp(1rem,3vw,1.5rem);
+    margin-bottom:1.2rem;
+  }
+  h2{margin:0 0 .6rem;color:var(--accent);font-size:1.2rem;}
+  h3{margin:.9rem 0 .35rem;font-size:1rem;}
+  p{margin:.5rem 0 .8rem;}
+  .step{color:var(--muted);font-size:.92rem;}
+  .note{
+    border-left:4px solid #7b9e79;
+    padding:.5rem .9rem;
+    background:var(--soft);
+    font-size:.95rem;
+  }
+  .meta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;font-size:.95rem;}
+  .meta span{flex:1 1 200px;border-bottom:1px solid var(--line);padding-bottom:.3rem;}
+  .formula{
+    background:#fafafa;
+    border:1px dashed var(--dash);
+    border-radius:6px;
+    padding:.6rem .8rem;
+    font:1rem/1.5 Consolas,"Courier New",monospace;
+    margin:.6rem 0;
+    overflow-x:auto;
+  }
+  .box{
+    display:inline-block;
+    min-width:2.2em;
+    height:1.6em;
+    border:1.5px solid var(--ink);
+    border-radius:4px;
+    vertical-align:middle;
+    margin:0 .15em;
+    background:#fff;
+  }
+  .box.wide{min-width:3em;}
+  .draw{
+    border:1.5px dashed var(--dash);
+    border-radius:8px;
+    height:170px;
+    margin:.7rem 0 0;
+    background:
+      repeating-linear-gradient(0deg, transparent 0 24px, #eef2ee 24px 25px),
+      #fff;
+  }
+  .axis{
+    font: .9rem/1.5 Consolas,"Courier New",monospace;
+    background:#fafafa;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:.5rem .7rem;
+    overflow-x:auto;
+    white-space:pre;
+    color:#333;
+    margin:.4rem 0 0;
+  }
+  table{width:100%;border-collapse:collapse;margin-top:.5rem;}
+  th,td{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;}
+  th{background:var(--soft);font-weight:600;}
+  .key{font-size:.95rem;background:var(--soft);border-left:4px solid #7b9e79;padding:.6rem .9rem;border-radius:4px;}
+  .arrow{font-family:Consolas,"Courier New",monospace;}
+  footer{text-align:center;color:var(--muted);padding:1.2rem;font-size:.85rem;}
+
+  @page{size:A4;margin:14mm;}
+  @media print{
+    body{background:#fff;font-size:11.5pt;}
+    header{background:#fff;color:#000;border-bottom:2px solid #000;padding:.6rem 0;}
+    main{width:100%;margin:0;}
+    section{border:1px solid #bbb;border-radius:6px;padding:.8rem 1rem;margin-bottom:.8rem;break-inside:avoid;}
+    .draw{height:140px;}
+    .note,.key{background:#f7f7f7;}
+    footer{display:none;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Okręgi styczne</h1>
+  <p>Karta pracy — klasa 2, poziom podstawowy</p>
+</header>
+
+<main>
+
+  <section>
+    
+    <h2>Zadanie</h2>
+    <p>Okrąg o środku <strong>P = (x, 0)</strong> i promieniu <strong>r₁ = 5</strong> oraz okrąg o środku <strong>Q = (−1, 0)</strong> i promieniu <strong>r₂ = 3</strong> są styczne.</p>
+    <p>Oblicz <strong>x</strong> dla przypadku:</p>
+    <p><strong>a)</strong> styczne zewnętrznie &nbsp;&nbsp;&nbsp; <strong>b)</strong> styczne wewnętrznie</p>
+
+    <h3>Jak myśleć — bez wzoru z kreskami</h3>
+    <p>Oba środki leżą na osi x. Odległość od <strong>Q = (−1, 0)</strong> do <strong>P = (x, 0)</strong> to po prostu różnica ich położeń. Na osi można iść <strong>w prawo</strong> albo <strong>w lewo</strong> — dlatego będą dwa rozwiązania.</p>
+    <p>• styczne <strong>zewnętrznie</strong>: okręgi dotykają się z zewnątrz → odległość środków = <strong>5 + 3 = 8</strong></p>
+    <p>• styczne <strong>wewnętrznie</strong>: mniejszy okrąg jest w większym → odległość środków = <strong>5 − 3 = 2</strong></p>
+  </section>
+
+  <section>
+    <h2>a) Styczne zewnętrznie</h2>
+    <p>Odległość środków ma być równa <strong>8</strong>. Od Q = (−1, 0) idziemy:</p>
+    <div class="formula">w prawo: &nbsp; −1 + 8 = <span class="box wide"></span></div>
+    <div class="formula">w lewo: &nbsp;&nbsp; −1 − 8 = <span class="box wide"></span></div>
+    <p><strong>Odpowiedź a):</strong> x = <span class="box"></span> lub x = <span class="box"></span></p>
+
+    <h3>Rysunek pomocniczy — dokończ</h3>
+    <p class="step">Zaznacz Q = (−1, 0) i okrąg o promieniu 3. Potem zaznacz P w obu rozwiązaniach i dorysuj okręgi tak, aby były styczne zewnętrznie.</p>
+    <div class="axis">x:  −10  −9  −8  −7  −6  −5  −4  −3  −2  −1   0   1   2   3   4   5   6   7   8
+     ---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---
+Q:                                          ●</div>
+    <div class="draw"></div>
+  </section>
+
+  <section>
+    <h2>b) Styczne wewnętrznie</h2>
+    <p>Odległość środków ma być równa <strong>2</strong>. Od Q = (−1, 0) idziemy:</p>
+    <div class="formula">w prawo: &nbsp; −1 + 2 = <span class="box wide"></span></div>
+    <div class="formula">w lewo: &nbsp;&nbsp; −1 − 2 = <span class="box wide"></span></div>
+    <p><strong>Odpowiedź b):</strong> x = <span class="box"></span> lub x = <span class="box"></span></p>
+
+    <h3>Rysunek pomocniczy — dokończ</h3>
+    <p class="step">Zaznacz Q = (−1, 0) i okrąg o promieniu 3. Zaznacz P w obu rozwiązaniach i dorysuj okręgi tak, aby mniejszy okrąg (Q) był wewnątrz większego (P) i styczny wewnętrznie.</p>
+    <div class="axis">x:   −5  −4  −3  −2  −1   0   1   2   3   4   5
+     ---|---|---|---|---|---|---|---|---|---|---
+Q:                              ●</div>
+    <div class="draw"></div>
+  </section>
+
+  <section>
+    <h2>Podsumowanie</h2>
+    <table>
+      <tr><th>Przypadek</th><th>Odległość środków</th><th>x</th></tr>
+      <tr><td>zewnętrznie</td><td>5 + 3 = 8</td><td><span class="box"></span> , <span class="box"></span></td></tr>
+      <tr><td>wewnętrznie</td><td>5 − 3 = 2</td><td><span class="box"></span> , <span class="box"></span></td></tr>
+    </table>
+    <p class="note">Wskazówka: najpierw policz odległość środków (suma albo różnica promieni), a potem od Q idź w prawo i w lewo o tę odległość.</p>
+  </section>
+
+  <section>
+    <h2>Dla rodzica / nauczyciela — klucz</h2>
+    <div class="key">
+      <p><strong>a) zewnętrznie:</strong> odległość 8 → x = −1 + 8 = 7 &nbsp; lub &nbsp; x = −1 − 8 = −9</p>
+      <p><strong>b) wewnętrznie:</strong> odległość 2 → x = −1 + 2 = 1 &nbsp; lub &nbsp; x = −1 − 2 = −3</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>Edukacja21 — materiał dla uczniów</footer>
+</body>
+</html>

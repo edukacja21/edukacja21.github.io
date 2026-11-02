@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Okrąg wpisany w trójkąt równoboczny — ściąga | Edukacja21</title>
+<style>
+  :root{
+    --ink:#222;
+    --muted:#555;
+    --paper:#fff;
+    --page:#f4f4f1;
+    --accent:#276749;
+    --line:#d8ded8;
+    --soft:#f2f7f0;
+    --dash:#aab5aa;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:1.55;
+    color:var(--ink);
+    background:var(--page);
+  }
+  header{
+    padding:1.4rem 1rem;
+    text-align:center;
+    color:#fff;
+    background:#315d48;
+  }
+  header h1{margin:0 0 .25rem;font-size:clamp(1.4rem,3.5vw,2rem);}
+  header p{margin:0;font-size:.95rem;}
+  main{width:min(820px,calc(100% - 2rem));margin:1.6rem auto 3rem;}
+  section{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:clamp(1rem,3vw,1.5rem);
+    margin-bottom:1.2rem;
+  }
+  h2{margin:0 0 .6rem;color:var(--accent);font-size:1.2rem;}
+  h3{margin:.9rem 0 .35rem;font-size:1rem;}
+  p{margin:.5rem 0 .8rem;}
+  .step{color:var(--muted);font-size:.92rem;}
+  .note{
+    border-left:4px solid #7b9e79;
+    padding:.5rem .9rem;
+    background:var(--soft);
+    font-size:.95rem;
+  }
+  .formula{
+    background:#fafafa;
+    border:1px dashed var(--dash);
+    border-radius:6px;
+    padding:.6rem .8rem;
+    font:1rem/1.6 Consolas,"Courier New",monospace;
+    margin:.6rem 0;
+    overflow-x:auto;
+  }
+  .formula strong{color:#276749;}
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:.8rem 1.2rem;
+    margin:.6rem 0;
+  }
+  .grid .cell{
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:.6rem .8rem;
+    background:#fff;
+  }
+  .grid .cell .label{font-size:.85rem;color:var(--muted);}
+  .grid .cell .val{
+    font:1.05rem/1.5 Consolas,"Courier New",monospace;
+    margin-top:.2rem;
+  }
+  .ratio{
+    display:flex;
+    gap:.6rem;
+    flex-wrap:wrap;
+    margin:.4rem 0;
+  }
+  .ratio span{
+    border:1.5px solid #276749;
+    border-radius:999px;
+    padding:.25rem .7rem;
+    font:1rem/1.4 Consolas,"Courier New",monospace;
+    background:var(--soft);
+  }
+  svg{max-width:100%;height:auto;display:block;margin:.6rem auto;}
+  footer{text-align:center;color:var(--muted);padding:1.2rem;font-size:.85rem;}
+
+  @page{size:A4;margin:14mm;}
+  @media print{
+    body{background:#fff;font-size:11.5pt;}
+    header{background:#fff;color:#000;border-bottom:2px solid #000;padding:.6rem 0;}
+    main{width:100%;margin:0;}
+    section{border:1px solid #bbb;border-radius:6px;padding:.8rem 1rem;margin-bottom:.8rem;break-inside:avoid;}
+    .note{background:#f7f7f7;}
+    footer{display:none;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Okrąg wpisany w trójkąt równoboczny</h1>
+  <p>Ściąga — zależności między a, h, r, R i P</p>
+</header>
+
+<main>
+
+  <section>
+    <h2>Oznaczenia</h2>
+    <div class="grid">
+      <div class="cell"><div class="label">bok</div><div class="val">a</div></div>
+      <div class="cell"><div class="label">wysokość</div><div class="val">h</div></div>
+      <div class="cell"><div class="label">promień okręgu wpisanego</div><div class="val">r</div></div>
+      <div class="cell"><div class="label">promień okręgu opisanego</div><div class="val">R</div></div>
+      <div class="cell"><div class="label">pole</div><div class="val">P</div></div>
+      <div class="cell"><div class="label">obwód</div><div class="val">Ob = 3a</div></div>
+    </div>
+    <p class="step">W trójkącie równobocznym środek okręgu wpisanego i opisanego to <strong>ten sam punkt</strong>: przecięcie wysokości (a zarazem środkowych i dwusiecznych).</p>
+  </section>
+
+  <section>
+    <h2>Rysunek poglądowy</h2>
+    <svg viewBox="0 0 360 300" role="img" aria-label="Trójkąt równoboczny z okręgiem wpisanym i opisanym">
+      <!-- trójkąt równoboczny -->
+      <polygon points="180,30 40,270 320,270"
+               fill="#f2f7f0" stroke="#276749" stroke-width="2"/>
+      <!-- okrąg wpisany -->
+      <circle cx="180" cy="190" r="55"
+              fill="none" stroke="#c0392b" stroke-width="2"/>
+      <!-- okrąg opisany -->
+      <circle cx="180" cy="190" r="110"
+              fill="none" stroke="#2980b9" stroke-width="1.5" stroke-dasharray="6 5"/>
+      <!-- środek -->
+      <circle cx="180" cy="190" r="3.5" fill="#222"/>
+      <text x="188" y="186" font-size="13" fill="#222">S</text>
+      <!-- wysokość -->
+      <line x1="180" y1="30" x2="180" y2="270"
+            stroke="#555" stroke-width="1" stroke-dasharray="4 4"/>
+      <!-- podpisy -->
+      <text x="170" y="22" font-size="13" fill="#222">a</text>
+      <text x="196" y="120" font-size="13" fill="#c0392b">r</text>
+      <text x="196" y="90" font-size="13" fill="#2980b9">R</text>
+      <text x="196" y="260" font-size="13" fill="#555">h</text>
+      <text x="30" y="285" font-size="13" fill="#222">a</text>
+      <text x="310" y="285" font-size="13" fill="#222">a</text>
+    </svg>
+    <p class="step">Czerwony — okrąg wpisany (r). Niebieski przerywany — okrąg opisany (R). Oba mają środek w tym samym punkcie S.</p>
+  </section>
+
+  <section>
+    <h2>Zależności — wzory</h2>
+
+    <h3>Wysokość</h3>
+    <div class="formula">h = (a · √3) / 2</div>
+
+    <h3>Promień okręgu wpisanego</h3>
+    <div class="formula"><strong>r = (a · √3) / 6</strong></div>
+    <div class="formula">r = h / 3</div>
+
+    <h3>Promień okręgu opisanego</h3>
+    <div class="formula">R = (a · √3) / 3</div>
+    <div class="formula">R = (2 · h) / 3</div>
+
+    <h3>Pole</h3>
+    <div class="formula">P = (a² · √3) / 4</div>
+    <div class="formula">P = (a · h) / 2</div>
+
+    <h3>Obwód</h3>
+    <div class="formula">Ob = 3a</div>
+  </section>
+
+  <section>
+    <h2>Najważniejsze proporcje — do zapamiętania</h2>
+    <div class="ratio">
+      <span>h = 3r</span>
+      <span>R = 2r</span>
+      <span>r : R = 1 : 2</span>
+    </div>
+    <p> Czyli: wysokość dzieli się w stosunku <strong>1 : 2</strong> — od środka do boku jest \(r\), od środka do wierzchołka jest \(R = 2r\), a cała wysokość to \(3r\).</p>
+    <p class="note">Szybka kontrola: jeśli znasz \(r\), to \(h = 3r\), \(R = 2r\), a bok \(a = 2r\sqrt{3}\). Jeśli znasz \(a\), to \(r = \frac{a\sqrt{3}}{6}\).</p>
+  </section>
+
+  <section>
+    <h2>Jak to zapamiętać</h2>
+    <ul>
+      <li><strong>Wysokość</strong> to „główna” wielkość — wszystko można z niej policzyć: \(r = \frac{h}{3}\), \(R = \frac{2h}{3}\).</li>
+      <li><strong>Środek</strong> dzieli wysokość w stosunku \(1:2\) (krótszy odcinek do boku, dłuższy do wierzchołka).</li>
+      <li><strong>√3</strong> pojawia się wszędzie — to znak trójkąta równobocznego.</li>
+      <li><strong>Pole</strong> można policzyć albo ze wzoru z \(a\), albo klasycznie \(\frac{a \cdot h}{2}\).</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>Edukacja21 — materiał dla uczniów</footer>
+</body>
+</html>
