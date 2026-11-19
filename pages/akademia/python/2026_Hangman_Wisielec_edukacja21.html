@@ -123,13 +123,83 @@
     </section>
 
     <section>
-      <span class="step-label">Krok 1</span>
-      <h2>🧠 Lista słów i losowanie hasła</h2>
-      <p>Najpierw wybieramy jedno tajemnicze słowo.</p>
-      <pre><code>import random
+      <span class="step-label"><!-- KROK 1 -->
+<div class="step">
+  <h2>🧠 KROK 1 — Lista słów i losowanie hasła</h2>
+  <p>Najpierw wybieramy jedno tajemnicze słowo. I kody ASCII. To były nasze pierwsze zajęcia...</p>
+
+<pre>
+import random
+
+wisielec = [
+"""
+ +---+
+ |   |
+     |
+     |
+     |
+     |
+=======
+""",
+"""
+ +---+
+ |   |
+ O   |
+     |
+     |
+     |
+=======
+""",
+"""
+ +---+
+ |   |
+ O   |
+ |   |
+     |
+     |
+=======
+""",
+"""
+ +---+
+ |   |
+ O   |
+/|   |
+     |
+     |
+=======
+""",
+"""
+ +---+
+ |   |
+ O   |
+/|\  |
+     |
+     |
+=======
+""",
+"""
+ +---+
+ |   |
+ O   |
+/|\  |
+/    |
+     |
+=======
+""",
+"""
+ +---+
+ |   |
+ O   |
+/|\  |
+/ \  |
+     |
+=======
+"""
+]
 
 slowa = ["python", "kot", "program", "gra", "wisielec"]
-haslo = random.choice(slowa)</code></pre>
+haslo = random.choice(slowa)
+</pre>
       <div class="task">
         <strong>Zadanie</strong>
         Wypisz hasło w konsoli (tylko do testów).
