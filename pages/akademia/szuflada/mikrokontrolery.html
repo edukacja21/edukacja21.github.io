@@ -1,0 +1,20 @@
+<h2>1. ESP32-C3: pierwsze uruchomienie</h2>
+<p>Podłącz ESP32 do USB. W Arduino IDE wybierz płytkę. Wgraj program.</p>
+
+<h3>ESP32 00 — tylko się zaświeci</h3>
+<pre><code>void setup() {
+  pinMode(8, OUTPUT);
+}
+void loop() {
+  digitalWrite(8, HIGH);
+  delay(1000);
+  digitalWrite(8, LOW);
+  delay(1000);
+}</code></pre>
+
+<p class="step">Zmień pin 8 na inny. Co się stanie?</p>
+<p class="note">Uwaga: nie każdy pin ESP32-C3 nadaje się do LED. Sprawdź w dokumentacji.</p>0–A–Anna
+1–B–Barbara
+2–C–Celina
+3–D–Dorota
+4–E–Eliza
